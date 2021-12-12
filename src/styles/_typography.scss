@@ -1,0 +1,9 @@
+@use "variables";
+
+@font-face {
+  font-family: variables.$main-font;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/src/assets/fonts/Rubik-Regular.woff2) format('woff2');
+}

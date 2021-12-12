@@ -1,9 +1,14 @@
-# ![Logo](/src/assets/favicon.png) alessandroroic.github.io - v2.0
-Personal website, designed and developed to showcase my skills and latest projects.
+# ![Logo](/public/favicon.ico) alessandroroic.github.io - v2.0
+Personal website built with Vue, designed and developed to showcase my skills and latest projects.
 
 [Check it out!](https://alessandroroic.github.io/)
 
 ![Snapshot](/src/assets/images/site-snapshot.png)
+
+## About it
+This is the second version of the website, the previous had some flaws, and it was too big for a small project like 
+a personal website. I traded Angular with Vue and removed most of the unnecessary libraries (like Boostrap).
+I choose Vue because I found it very interesting, and I wanted to learn it.
 
 ## Why is it a public repo?
 To showcase this project code and to make it available to whomever wants to take inspiration from it. 
@@ -13,7 +18,10 @@ you must give appropriate credit, provide a link to the license, and indicate if
 You can find more information in the licence section.
 
 ## What libraries / frameworks are you using?
-- 
+- Vue 3
+- AnimeJs
+- PurgeCss
+- Custom sass framework (in the works)
 
 ## Licence
 [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
@@ -29,4 +37,6 @@ This work is licensed under a
 [cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
 
-
+## Previous version 1.0
+- [Repository](https://github.com/AlessandroRoic/alessandroroic-v1.0.github.io)
+- [Website](https://alessandroroic.github.io/)

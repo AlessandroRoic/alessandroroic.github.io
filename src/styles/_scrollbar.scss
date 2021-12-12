@@ -1,0 +1,10 @@
+@use "variables";
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: variables.$spanish-grey;
+  border-radius: variables.$card-border-radius;
+}

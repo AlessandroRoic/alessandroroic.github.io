@@ -1,0 +1,64 @@
+<template>
+  <div @fadeInGrow [ngClass]="{ 'g-0': !isFooter }" class="row align-items-center justify-content-center">
+    <div @item class="text-center" [ngClass]="isFooter ? 'col-auto' : 'col-6 col-lg-3 mb-3'">
+      <button (click)="openSite('github.com/AlessandroRoic')" aria-label="github" class="social__button" type="button">
+        <svg class="social__icon">
+          <use href="assets/icons/icons.svg#github"></use>
+        </svg>
+      </button>
+    </div>
+
+    <div @item class="text-center" [ngClass]="isFooter ? 'col-auto' : 'col-6 col-lg-3 mb-3'">
+      <button (click)="openSite('linkedin.com/in/alessandroroic')" aria-label="linkedin" class="social__button" type="button">
+        <svg class="social__icon">
+          <use href="assets/icons/icons.svg#linkedin"></use>
+        </svg>
+      </button>
+    </div>
+
+    <div @item class="text-center" [ngClass]="isFooter ? 'col-auto' : 'col-6 col-lg-3 mb-3'">
+      <button (click)="downloadCv()" aria-label="cv" class="social__button" type="button">
+        <svg class="social__icon">
+          <use href="assets/icons/icons.svg#cv"></use>
+        </svg>
+      </button>
+    </div>
+
+    <div @item class="text-center" [ngClass]="isFooter ? 'col-auto' : 'col-6 col-lg-3 mb-3'">
+      <a href="mailto:alessandro.roic@gmail.com" aria-label="email" class="social__button">
+        <svg class="social__icon">
+          <use href="assets/icons/icons.svg#email"></use>
+        </svg>
+      </a>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'SocialMedias',
+};
+</script>
+
+<style scoped lang="scss">
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.social {
+  &__icon {
+    fill: $cultured;
+    color: $cultured;
+    @include scaleSvg(32px);
+
+    &:hover {
+      fill: $tart-orange;
+      color: $tart-orange;
+    }
+  }
+
+  &__button {
+    border: none;
+    background: none;
+  }
+}
+</style>

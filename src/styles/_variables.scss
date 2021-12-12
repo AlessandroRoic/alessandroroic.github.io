@@ -1,0 +1,19 @@
+// Fonts
+$main-font: 'Rubik', sans-serif;
+
+// Colors
+$tart-orange:   #F64E4D; // 232, 74, 95
+$cultured:      #eeeeee; // 238, 238, 238
+$spanish-grey:  #979696; //151, 150, 150
+$jet:           #3F3E3D; //63, 62, 61
+$eerie-black:   #252423; // 37, 36, 35
+$eerie-black-2: #111417; // 17, 20, 23
+
+// Card
+$card-border-radius: 12px;
+$card-shadow: black 0 5px 15px;
+
+// Box shadow
+$tart-orange-shadow: 8px 5px 0 -1px $tart-orange;
+$grey-shadow: $jet 0px 2px 8px 0px;
+$black-shadow: $eerie-black-2 0px 2px 8px 0px;
