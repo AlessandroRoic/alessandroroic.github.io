@@ -22,7 +22,7 @@ export default {
 
 <style scoped lang="scss">
 @use '../styles/variables';
-@use '../styles/layout';
+@use '../styles/lib/layout';
 
 .section {
   @include layout.row();
@@ -33,9 +33,10 @@ export default {
 
   &__content-wrapper {
     @include layout.col(12);
-    @include layout.col(10, 'tablet');
-    @include layout.col(8, 'desktop');
-    @include layout.col(6, 'desktop-m');
+    @include layout.col(10, tablet);
+    @include layout.col(8, desktop);
+    @include layout.col(6, desktop-m);
+    @include layout.col(4, desktop-l);
     box-shadow: variables.$card-shadow;
   }
 
