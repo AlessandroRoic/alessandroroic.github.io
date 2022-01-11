@@ -1,0 +1,142 @@
+@use "sass:math";
+@use 'breakpoint';
+@use 'variables';
+
+@mixin container-base() {
+  width: 100%;
+  padding-right: math.div(variables.$column-gap, 2);
+  padding-left: math.div(variables.$column-gap, 2);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin row-base() {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+// TODO
+@mixin grid-base() {
+  display: grid;
+}
+
+@mixin container($breakpoint: null) {
+  @if $breakpoint {
+    @include breakpoint.show-for($breakpoint) {
+      @include container-base();
+    }
+  } @else {
+    @include container-base();
+  }
+}
+
+@mixin row($breakpoint: null) {
+  @if $breakpoint {
+    @include breakpoint.show-for($breakpoint) {
+      @include row-base();
+    }
+  } @else {
+    @include row-base();
+  }
+}
+
+@mixin make-col($number) {
+  flex: 0 0 auto;
+  @if $number == auto {
+    width: auto;
+  } @else {
+    width: percentage(math.div($number, variables.$columns))
+  }
+}
+
+@mixin col($number, $breakpoint: null) {
+  @if $breakpoint and $number {
+    @include breakpoint.show-for($breakpoint) {
+      @include make-col($number);
+    }
+  } @else if $number {
+    @include make-col($number);
+  } @else {
+    @error 'Col number not found';
+  }
+}
+
+@mixin _build-columns($breakpoint-label: null) {
+  @for $i from 1 through variables.$columns {
+    @if $breakpoint-label {
+      @include breakpoint.breakpoint-class($breakpoint-label, col-#{$i}) {
+        @include make-col($i);
+      }
+    } @else {
+      .col-#{$i} {
+        @include make-col($i);
+      }
+    }
+  }
+}
+
+@mixin build-columns() {
+  @include _build-columns();
+  @include col(auto);
+  @each $breakpoint, $width in variables.$grid-breakpoints {
+    @media (min-width: $width) {
+      @include col(auto, $breakpoint);
+      @include _build-columns($breakpoint);
+    }
+  }
+}
+
+@mixin _build-rows($breakpoint-label: null) {
+  @if $breakpoint-label {
+    @include breakpoint.breakpoint-class($breakpoint-label, row) {
+      @include row-base();
+    }
+  } @else {
+    .row {
+      @include row-base();
+    }
+  }
+}
+
+@mixin build-rows() {
+  @include _build-rows();
+  @each $breakpoint, $width in variables.$grid-breakpoints {
+    @media (min-width: $width) {
+      @include _build-rows($breakpoint);
+    }
+  }
+}
+
+@mixin _build-containers($breakpoint-label: null) {
+  @if $breakpoint-label {
+    @include breakpoint.breakpoint-class($breakpoint-label, container) {
+      @include container-base();
+    }
+  } @else {
+    .container {
+      @include container-base();
+    }
+  }
+}
+
+@mixin build-containers() {
+  @include _build-containers();
+  @each $breakpoint, $width in variables.$grid-breakpoints {
+    @media (min-width: $width) {
+      @include _build-containers($breakpoint);
+    }
+  }
+}
+
+@mixin build-layout() {
+  @include _build-containers();
+  @include _build-rows();
+  @include _build-columns();
+  @each $breakpoint, $width in variables.$grid-breakpoints {
+    @media (min-width: $width) {
+      @include _build-containers($breakpoint);
+      @include _build-rows($breakpoint);
+      @include _build-columns($breakpoint);
+    }
+  }
+}

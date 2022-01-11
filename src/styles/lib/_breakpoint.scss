@@ -1,0 +1,44 @@
+@use 'variables';
+
+@mixin show-for($selected-breakpoint) {
+  @if $selected-breakpoint {
+    $width: map-get(variables.$grid-breakpoints, $selected-breakpoint);
+    @media (min-width: $width) {
+      @content;
+    }
+  } @else {
+    @error 'Breakpoint not found';
+  }
+}
+
+@mixin show-for-range($min: null, $max: null) {
+  @if $min == null or $max == null {
+    @error "Both values are needed to create a media range";
+  } @else if $min and $max {
+    $min-width: map-get(variables.$grid-breakpoints, $min);
+    $max-width: map-get(variables.$grid-breakpoints, $max);
+    @media (min-width: $min-width) and (max-width: $max-width) {
+      @content;
+    }
+  }
+}
+
+@mixin breakpoint-class($breakpoint, $label) {
+  [class*="#{$breakpoint}#{variables.$breakpoint-separator}#{$label}"] {
+    @content;
+  }
+}
+
+@mixin build-breakpoints($label) {
+  @if $label {
+    @each $breakpoint, $width in variables.$grid-breakpoints {
+      @media (min-width: $width) {
+        @include breakpoint-class($breakpoint, $label) {
+          @content;
+        }
+      }
+    }
+  } @else {
+    @error 'Label necessary'
+  }
+}

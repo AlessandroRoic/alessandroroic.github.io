@@ -1,4 +1,5 @@
 @use "variables";
+@use "sass:math";
 
 @font-face {
   font-family: variables.$main-font;

@@ -1,0 +1,130 @@
+@use "sass:math";
+@use "breakpoint";
+@use 'variables';
+
+@mixin _padding($selected-spacing, $selected-direction: null) {
+  $spacing: map-get(variables.$spacings, $selected-spacing);
+  @if $selected-direction {
+    @if $selected-direction == 'top' {
+      padding-top: $spacing;
+    } @else if $selected-direction == 'bottom' {
+      padding-bottom: $spacing;
+    } @else if $selected-direction == 'right' {
+      padding-right: $spacing;
+    } @else if $selected-direction == 'left' {
+      padding-left: $spacing;
+    } @else if $selected-direction == 'x' {
+      padding-top: $spacing;
+      padding-bottom: $spacing;
+    } @else if $selected-direction == 'y' {
+      padding-left: $spacing;
+      padding-right: $spacing;
+    }
+  } @else {
+    padding: $spacing
+  }
+}
+
+@mixin padding($selected-spacing, $selected-direction: null, $selected-breakpoint: null) {
+  @if $selected-breakpoint {
+    @include breakpoint.show-for($selected-breakpoint) {
+      @include _padding($selected-spacing, $selected-direction);
+    }
+  } @else {
+    @include _padding($selected-spacing, $selected-direction);
+  }
+}
+
+@mixin _margin($selected-spacing, $selected-direction: null) {
+  $spacing: map-get(variables.$spacings, $selected-spacing);
+  @if $selected-direction {
+    @if $selected-direction == 'top' {
+      margin-top: $spacing;
+    } @else if $selected-direction == 'bottom' {
+      margin-bottom: $spacing;
+    } @else if $selected-direction == 'right' {
+      margin-right: $spacing;
+    } @else if $selected-direction == 'left' {
+      margin-left: $spacing;
+    } @else if $selected-direction == 'x' {
+      margin-top: $spacing;
+      margin-bottom: $spacing;
+    } @else if $selected-direction == 'y' {
+      margin-left: $spacing;
+      margin-right: $spacing;
+    }
+  } @else {
+    margin: $spacing
+  }
+}
+
+@mixin margin($selected-spacing, $selected-direction: null, $selected-breakpoint: null) {
+  @if $selected-breakpoint {
+    @include breakpoint.show-for($selected-breakpoint) {
+      @include _margin($selected-spacing, $selected-direction);
+    }
+  } @else {
+    @include _margin($selected-spacing, $selected-direction);
+  }
+}
+
+@mixin _build-padding($breakpoint-label: null) {
+  @each $direction, $direction-value in variables.$directions {
+    @each $spacing, $spacing-value in variables.$spacings {
+      @if $breakpoint-label {
+        @include breakpoint.breakpoint-class($breakpoint-label, p#{$direction-value}-#{$spacing}) {
+          @include padding($spacing, $direction);
+        }
+      } @else {
+        .p#{$direction-value}-#{$spacing} {
+          @include padding($spacing, $direction);
+        }
+      }
+    }
+  }
+}
+
+@mixin _build-margin($breakpoint-label: null) {
+  @each $direction, $direction-value in variables.$directions {
+    @each $spacing, $spacing-value in variables.$spacings {
+      @if $breakpoint-label {
+        @include breakpoint.breakpoint-class($breakpoint-label, m#{$direction-value}-#{$spacing}) {
+          @include margin($spacing, $direction);
+        }
+      } @else {
+        .m#{$direction-value}-#{$spacing} {
+          @include margin($spacing, $direction);
+        }
+      }
+    }
+  }
+}
+
+@mixin build-padding() {
+  @include _build-padding();
+  @each $breakpoint, $width in variables.$grid-breakpoints {
+    @media (min-width: $width) {
+      @include _build-padding($breakpoint);
+    }
+  }
+}
+
+@mixin build-margin() {
+  @include _build-margin();
+  @each $breakpoint, $width in variables.$grid-breakpoints {
+    @media (min-width: $width) {
+      @include _build-margin($breakpoint);
+    }
+  }
+}
+
+@mixin build-spacing() {
+  @include _build-margin();
+  @include _build-padding();
+  @each $breakpoint, $width in variables.$grid-breakpoints {
+    @media (min-width: $width) {
+      @include _build-margin($breakpoint);
+      @include _build-padding($breakpoint);
+    }
+  }
+}

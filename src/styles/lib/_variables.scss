@@ -1,0 +1,62 @@
+@use "sass:math";
+
+// breakpoints
+$grid-breakpoints: (
+        reset: 0,
+        mobile-s: 320px,
+        mobile-m: 375px,
+        mobile-l: 425px,
+        tablet: 768px,
+        desktop: 1024px,
+        desktop-m: 1440px,
+        desktop-l: 2560px
+);
+$container-breakpoints: (
+        mobile-s: 320px,
+        mobile-m: 375px,
+        mobile-l: 425px,
+        tablet: 768px,
+        desktop: 1024px,
+        desktop-m: 1440px,
+        desktop-l: 2560px
+);
+$breakpoint-separator: ':';
+
+// layout
+$columns: 12;
+$column-gap: 2rem;
+
+// spacing
+$spacer: 1rem;
+$spacings: (
+        auto: auto,
+        '1-8': math.div($spacer, 8),
+        '1-4': math.div($spacer, 4),
+        '1-2': math.div($spacer, 2),
+        0: 0,
+        1: 1 * $spacer,
+        2: 2 * $spacer,
+        3: 3 * $spacer,
+        4: 4 * $spacer
+);
+$directions: (
+        top: t,
+        bottom: b,
+        right: r,
+        left: l,
+        x: x,
+        y: y
+);
+// font
+$font-size-base: 1rem !default;
+
+// headings
+$headings-margin-bottom: math.div($spacer, 2) !default;
+$headings-font-weight: 500 !default;
+$headings-line-height: 1.2 !default;
+$h1-font-size: $font-size-base * 2.5 !default;
+$h2-font-size: $font-size-base * 2 !default;
+$h3-font-size: $font-size-base * 1.75 !default;
+$h4-font-size: $font-size-base * 1.5 !default;
+$h5-font-size: $font-size-base * 1.25 !default;
+$h6-font-size: $font-size-base !default;
