@@ -5,6 +5,6 @@
   font-family: variables.$main-font;
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
-  src: url(/src/assets/fonts/Rubik-Regular.woff2) format('woff2');
+  font-display: auto;
+  src: local("Rubik"), url(~@/assets/fonts/Rubik-Regular.woff2) format('woff2');
 }

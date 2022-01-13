@@ -2,7 +2,7 @@
   <main class="container">
     <BaseSection id="info">
       <svg viewBox="0 0 169 60" aria-label="welcome card" class="section__welcome">
-        <use href="../assets/icons/icons.svg#welcome-card"></use>
+        <use href="~@/assets/icons/icons.svg#welcome-card"></use>
       </svg>
     </BaseSection>
 
@@ -10,7 +10,7 @@
       <h1 class="tart-orange">About Me</h1>
       <div class="row">
         <div class="about__profile-img">
-          <img class="about__side-photo" alt="profile" src="../assets/images/profile.webp" aria-label="profile picture" />
+          <img class="about__side-photo" alt="profile" src="~@/assets/images/profile.webp" aria-label="profile picture" />
         </div>
         <div class="about__intro">
           Hi, I'm Alessandro and as you read before in the giant sign above I'm a Front End Developer. I have 2 years of experience building
@@ -109,7 +109,7 @@
           <BaseCard>
             <template #logo>
               <svg width="80" height="80" aria-label="site logo">
-                <use href="../assets/icons/icons.svg#site-logo"></use>
+                <use href="~@/assets/icons/icons.svg#site-logo"></use>
               </svg>
             </template>
             <template #title-center><b>Personal Website</b></template>
@@ -122,7 +122,7 @@
         <div class="projects__card">
           <BaseCard>
             <template #logo>
-              <img src="../assets/images/curiosone.png" alt="e-quality logo" />
+              <img src="~@/assets/images/curiosone.png" alt="e-quality logo" />
             </template>
             <template #title-center><b>E-Quality</b></template>
             <template #content>Gamification built for kids on gender equality</template>
@@ -134,7 +134,7 @@
         <div class="projects__card">
           <BaseCard>
             <template #logo>
-              <img src="../assets/images/curiosone.png" alt="airbone assault logo" />
+              <img src="~@/assets/images/curiosone.png" alt="airbone assault logo" />
             </template>
             <template #title-center><b>Airborne Assault</b></template>
             <template #content>Video game build with libGDX</template>
@@ -185,12 +185,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@use '../styles/variables';
-@use '../styles/mixins';
-@use '../styles/lib/layout';
-@use '../styles/colors';
-@use '../styles/lib/spacing';
-@use '../styles/lib/breakpoint';
+@use '~@/styles/variables';
+@use '~@/styles/mixins';
+@use '~@/styles/lib/layout';
+@use '~@/styles/colors';
+@use '~@/styles/lib/spacing';
+@use '~@/styles/lib/breakpoint';
 
 .section {
   &__welcome {

@@ -12,7 +12,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-@use 'styles/main';
-</style>
