@@ -23,10 +23,10 @@
       <h2 class="tart-orange">My Skills</h2>
       <div class="col-12">Here some languages, frameworks and technologies that I'm using:</div>
       <div class="row">
-        <div v-for="pill in pills" :key="pill" class="col-auto mr-1-2">
-          <p class="section__pill">
+        <div v-for="pill in pills" :key="pill" class="col-auto pr-1">
+          <div class="section__pill">
             {{ pill }}
-          </p>
+          </div>
         </div>
       </div>
       <hr />
@@ -85,16 +85,15 @@
           <p class="mt-1">September 2016 – April 2020</p>
           <ul>
             <li>
-              <span class="tart-orange"><u>E-Quality</u></span
-              >: gamified video game built for kids to raise awareness on gender equality in collaboration with the Italian Regional
-              Councilor for Equal Opportunities
+              <span class="tart-orange">E-Quality</span>: gamified video game built for kids to raise awareness on gender equality in
+              collaboration with the Italian Regional Councilor for Equal Opportunities
             </li>
             <li>
-              <span class="tart-orange"><u>Curiosone Bot</u></span>
+              <span class="tart-orange">Curiosone Bot</span>
               : interactive chat bot written in Java during the Programming Methodologies course
             </li>
             <li>
-              <span class="tart-orange"><u>Airborne Assault</u></span>
+              <span class="tart-orange">Airborne Assault</span>
               : video game build with libGDX for the university Java course integrated into the Curiosone Bot project
             </li>
           </ul>
@@ -151,6 +150,7 @@
 <script>
 import BaseSection from '@/components/BaseSection';
 import BaseCard from '@/components/BaseCard';
+import { openSite } from '@/helpers/utils';
 
 export default {
   name: 'HomePage',
@@ -160,8 +160,7 @@ export default {
   },
   methods: {
     goTo: (link) => {
-      console.log(link);
-      // this.utils.openSite(link);
+      openSite(link);
     },
   },
   data: () => ({
@@ -174,7 +173,6 @@ export default {
       'NgRx',
       'RxJs',
       'Redux',
-      'Bootstrap',
       'Java EE',
       'Spring',
       'PostgreSQL',
@@ -202,7 +200,7 @@ export default {
     border-radius: variables.$card-border-radius;
     background: variables.$cultured;
     color: variables.$eerie-black-2;
-    margin-bottom: 10px;
+    margin: 10px 0 10px 0;
     padding: 5px 8px 5px 8px;
     box-shadow: variables.$tart-orange-shadow;
     border: 2px solid variables.$eerie-black-2;
@@ -214,8 +212,9 @@ export default {
     @include layout.col(12);
     @include layout.col(5, desktop);
     @include layout.col(4, desktop-l);
+    @include spacing.padding(1, right, desktop);
     @include spacing.margin(1, bottom);
-    @include spacing.margin(0, bottom, desktop);
+    @include spacing.margin(auto, x, desktop);
     @include breakpoint.show-for-range(reset, tablet) {
       display: flex;
       align-self: center;
@@ -224,9 +223,12 @@ export default {
   }
 
   &__side-photo {
-    @include mixins.scaleHeight(257px);
-    @include mixins.scaleWidth(230px);
-    @include spacing.margin('1-2', right, desktop);
+    @include spacing.margin('1/2', right, desktop);
+    @include breakpoint.show-for(desktop) {
+      max-width: 100%;
+    }
+    max-width: 80%;
+    height: auto;
     border: 2px solid variables.$jet;
     box-shadow: variables.$tart-orange-shadow;
     border-radius: variables.$card-border-radius;
@@ -245,7 +247,7 @@ export default {
   &__card {
     @include layout.col(12);
     @include layout.col(4, desktop);
-    @include spacing.padding('1-2', y);
+    @include spacing.padding('1/2', y);
     @include spacing.margin(1, bottom);
   }
 }

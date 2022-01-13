@@ -30,9 +30,9 @@ $column-gap: 2rem;
 $spacer: 1rem;
 $spacings: (
         auto: auto,
-        '1-8': math.div($spacer, 8),
-        '1-4': math.div($spacer, 4),
-        '1-2': math.div($spacer, 2),
+        '1/8': math.div($spacer, 8),
+        '1/4': math.div($spacer, 4),
+        '1/2': math.div($spacer, 2),
         0: 0,
         1: 1 * $spacer,
         2: 2 * $spacer,

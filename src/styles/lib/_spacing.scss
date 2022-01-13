@@ -76,7 +76,7 @@
           @include padding($spacing, $direction);
         }
       } @else {
-        .p#{$direction-value}-#{$spacing} {
+        [class*="p#{$direction-value}-#{$spacing}"] {
           @include padding($spacing, $direction);
         }
       }
@@ -92,7 +92,7 @@
           @include margin($spacing, $direction);
         }
       } @else {
-        .m#{$direction-value}-#{$spacing} {
+        [class*="m#{$direction-value}-#{$spacing}"] {
           @include margin($spacing, $direction);
         }
       }
