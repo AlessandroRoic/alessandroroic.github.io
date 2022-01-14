@@ -1,12 +1,19 @@
 <template>
-  <svg (click)="goBackTop()" *ngIf="isScrolled$ | async" @item class="arrow" aria-label="back top arrow">
-    <use href="assets/icons/icons.svg#arrow-up"></use>
+  <svg v-on:click="goBackTop()" class="arrow" aria-label="back top arrow">
+    <use href="~@/assets/icons/icons.svg#arrow-up"></use>
   </svg>
 </template>
 
 <script>
+import { scrollTop } from '@/helpers/utils';
+
 export default {
   name: 'BackTopArrow',
+  methods: {
+    goBackTop: () => {
+      scrollTop();
+    },
+  },
 };
 </script>
 
