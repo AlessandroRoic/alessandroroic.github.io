@@ -1,14 +1,20 @@
 <template>
-  <svg v-on:click="goBackTop()" class="arrow" aria-label="back top arrow">
-    <use href="~@/assets/icons/icons.svg#arrow-up"></use>
-  </svg>
+  <template v-if="getPageScrolled">
+    <svg @click="goBackTop()" class="arrow" aria-label="back top arrow">
+      <use href="~@/assets/icons/icons.svg#arrow-up"></use>
+    </svg>
+  </template>
 </template>
 
 <script>
 import { scrollTop } from '@/helpers/utils';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'BackTopArrow',
+  computed: {
+    ...mapGetters('ui', ['getPageScrolled']),
+  },
   methods: {
     goBackTop: () => {
       scrollTop();

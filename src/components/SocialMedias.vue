@@ -1,33 +1,33 @@
 <template>
-  <div @fadeInGrow [ngClass]="{ 'g-0': !isFooter }" class="row align-items-center justify-content-center">
-    <div @item class="text-center" [ngClass]="isFooter ? 'col-auto' : 'col-6 col-lg-3 mb-3'">
-      <button (click)="openSite('github.com/AlessandroRoic')" aria-label="github" class="social__button" type="button">
-        <svg class="social__icon">
-          <use href="assets/icons/icons.svg#github"></use>
+  <div v-bind:class="{ 'g-0': !isFooter }" class="social-medias">
+    <div v-bind:class="isFooter ? 'col-auto' : 'col-6 desktop:col-3 mb-1'">
+      <button @click="openSite('github.com/AlessandroRoic')" aria-label="github" class="social-medias__button" type="button">
+        <svg class="social-medias__icon">
+          <use href="~@/assets/icons/icons.svg#github"></use>
         </svg>
       </button>
     </div>
 
-    <div @item class="text-center" [ngClass]="isFooter ? 'col-auto' : 'col-6 col-lg-3 mb-3'">
-      <button (click)="openSite('linkedin.com/in/alessandroroic')" aria-label="linkedin" class="social__button" type="button">
-        <svg class="social__icon">
-          <use href="assets/icons/icons.svg#linkedin"></use>
+    <div v-bind:class="isFooter ? 'col-auto' : 'col-6 desktop:col-3 mb-1'">
+      <button @click="openSite('linkedin.com/in/alessandroroic')" aria-label="linkedin" class="social-medias__button" type="button">
+        <svg class="social-medias__icon">
+          <use href="~@/assets/icons/icons.svg#linkedin"></use>
         </svg>
       </button>
     </div>
 
-    <div @item class="text-center" [ngClass]="isFooter ? 'col-auto' : 'col-6 col-lg-3 mb-3'">
-      <button (click)="downloadCv()" aria-label="cv" class="social__button" type="button">
-        <svg class="social__icon">
-          <use href="assets/icons/icons.svg#cv"></use>
+    <div v-bind:class="isFooter ? 'col-auto' : 'col-6 desktop:col-3 mb-1'">
+      <button @click="downloadCv()" aria-label="cv" class="social-medias__button" type="button">
+        <svg class="social-medias__icon">
+          <use href="~@/assets/icons/icons.svg#cv"></use>
         </svg>
       </button>
     </div>
 
-    <div @item class="text-center" [ngClass]="isFooter ? 'col-auto' : 'col-6 col-lg-3 mb-3'">
-      <a href="mailto:alessandro.roic@gmail.com" aria-label="email" class="social__button">
-        <svg class="social__icon">
-          <use href="assets/icons/icons.svg#email"></use>
+    <div v-bind:class="isFooter ? 'col-auto' : 'col-6 desktop:col-3 mb-1'">
+      <a href="mailto:alessandro.roic@gmail.com" aria-label="email" class="social-medias__button">
+        <svg class="social-medias__icon">
+          <use href="~@/assets/icons/icons.svg#email"></use>
         </svg>
       </a>
     </div>
@@ -35,24 +35,38 @@
 </template>
 
 <script>
+import { downloadCv, openSite } from '@/helpers/utils';
+
 export default {
   name: 'SocialMedias',
+  props: {
+    isFooter: null,
+  },
+  methods: {
+    openSite,
+    downloadCv,
+  },
 };
 </script>
 
 <style scoped lang="scss">
-@import '../styles/variables';
-@import '../styles/mixins';
+@use '../styles/variables';
+@use '../styles/mixins';
+@use '../styles/lib/layout';
+@use '../styles/lib/positioning';
 
-.social {
+.social-medias {
+  @include layout.row();
+  @include positioning.centered();
+
   &__icon {
-    fill: $cultured;
-    color: $cultured;
-    @include scaleSvg(32px);
+    @include mixins.scaleSvg(32px);
+    fill: variables.$cultured;
+    color: variables.$cultured;
 
     &:hover {
-      fill: $tart-orange;
-      color: $tart-orange;
+      fill: variables.$tart-orange;
+      color: variables.$tart-orange;
     }
   }
 

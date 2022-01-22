@@ -114,7 +114,7 @@
             <template #title-center><b>Personal Website</b></template>
             <template #content>You can check this site source code on github</template>
             <template #link>
-              <button v-on:click="goTo('github.com/AlessandroRoic/alessandroroic.github.io')">Check it</button>
+              <button @click="openSite('github.com/AlessandroRoic/alessandroroic.github.io')">Check it</button>
             </template>
           </BaseCard>
         </div>
@@ -126,7 +126,7 @@
             <template #title-center><b>E-Quality</b></template>
             <template #content>Gamification built for kids on gender equality</template>
             <template #link>
-              <button v-on:click="goTo('github.com/AlessandroRoic/E-Quality')">Check it</button>
+              <button @click="openSite('github.com/AlessandroRoic/E-Quality')">Check it</button>
             </template>
           </BaseCard>
         </div>
@@ -138,7 +138,7 @@
             <template #title-center><b>Airborne Assault</b></template>
             <template #content>Video game build with libGDX</template>
             <template #link>
-              <button v-on:click="goTo('github.com/AlessandroRoic/AirborneAssault')">Check it</button>
+              <button @click="openSite('github.com/AlessandroRoic/AirborneAssault')">Check it</button>
             </template>
           </BaseCard>
         </div>
@@ -159,9 +159,7 @@ export default {
     BaseSection,
   },
   methods: {
-    goTo: (link) => {
-      openSite(link);
-    },
+    openSite,
   },
   data: () => ({
     pills: [
