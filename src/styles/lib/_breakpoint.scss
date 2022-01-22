@@ -24,7 +24,7 @@
 }
 
 @mixin breakpoint-class($breakpoint, $label) {
-  [class*="#{$breakpoint}#{variables.$breakpoint-separator}#{$label}"] {
+  [class~="#{$breakpoint}#{variables.$breakpoint-separator}#{$label}"] {
     @content;
   }
 }
