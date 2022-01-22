@@ -14,8 +14,8 @@ export const ui = {
     [UI_MUTATIONS.SET_PAGE_SCROLL](state, payload) {
       state.pageScroll = payload;
     },
-    [UI_MUTATIONS.TOGGLE_SIDENAV](state, payload) {
-      state.sideNavOpened = payload;
+    [UI_MUTATIONS.TOGGLE_SIDENAV](state) {
+      state.sideNavOpened = !state.sideNavOpened;
     },
   },
   getters: {

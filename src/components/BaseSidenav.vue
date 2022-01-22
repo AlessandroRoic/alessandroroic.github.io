@@ -1,13 +1,13 @@
 <template>
-  <div @sideNav class="side-nav container-fluid d-flex flex-column p-0" *ngIf="sideNavOpened$ | async">
+  <div class="side-nav container-fluid d-flex flex-column p-0" v-if="getSideNavOpened">
     <div class="row vh-100 m-0">
-      <div class="col-7 col-md-10 col-lg-9 col-xl-10" (click)="closeSideNav()"></div>
+      <div class="col-7 col-md-10 col-lg-9 col-xl-10" @click="closeSideNav()"></div>
 
-      <div @sideNavSlide class="menu col-5 col-md-2 col-lg-3 col-xl-2">
+      <div class="menu col-5 col-md-2 col-lg-3 col-xl-2">
         <div class="d-flex flex-column h-100">
           <div class="row mt-4">
             <div class="col-2">
-              <div (click)="closeSideNav()">
+              <div @click="closeSideNav()">
                 <svg class="menu__close-button">
                   <use href="assets/icons/icons.svg#close-sidenav"></use>
                 </svg>
@@ -17,17 +17,17 @@
 
           <div class="row mt-5">
             <div class="col-12 text-center">
-              <div @fadeInGrow>
-                <div @item class="mb-3"><a (click)="closeSideNav()" class="menu__text" href="#about">ABOUT</a></div>
-                <div @item class="mb-3"><a (click)="closeSideNav()" class="menu__text" href="#work">WORK</a></div>
-                <div @item class="mb-3"><a (click)="closeSideNav()" class="menu__text" href="#projects">PROJECTS</a></div>
+              <div>
+                <div class="mb-3"><a @click="closeSideNav()" class="menu__text" href="#about">ABOUT</a></div>
+                <div class="mb-3"><a @click="closeSideNav()" class="menu__text" href="#work">WORK</a></div>
+                <div class="mb-3"><a @click="closeSideNav()" class="menu__text" href="#projects">PROJECTS</a></div>
               </div>
             </div>
           </div>
 
           <div class="row flex-grow-1 align-items-end">
             <div class="col-12">
-              <app-social-medias></app-social-medias>
+              <SocialMedias></SocialMedias>
             </div>
           </div>
         </div>
@@ -37,8 +37,22 @@
 </template>
 
 <script>
+import SocialMedias from '@/components/SocialMedias';
+import { UI_MUTATIONS } from '@/store/ui/ui-mutations.enum';
+import { mapGetters, mapMutations } from 'vuex';
+
 export default {
-  name: 'Sidenav',
+  name: 'BaseSidenav',
+  components: { SocialMedias },
+  computed: {
+    ...mapGetters('ui', ['getSideNavOpened']),
+  },
+  methods: {
+    ...mapMutations('ui', [UI_MUTATIONS.TOGGLE_SIDENAV]),
+    closeSideNav() {
+      this.TOGGLE_SIDENAV();
+    },
+  },
 };
 </script>
 
