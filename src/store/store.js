@@ -1,6 +1,8 @@
 import { createStore } from 'vuex';
+import { ui } from '@/store/ui/ui-module';
 
 export const store = createStore({
-  state: {},
-  mutations: {},
+  modules: {
+    ui,
+  },
 });
