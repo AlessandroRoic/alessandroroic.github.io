@@ -1,0 +1,11 @@
+@mixin fixed-top() {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+@mixin centered() {
+  align-items: center;
+  justify-content: center;
+}
