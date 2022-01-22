@@ -4,7 +4,7 @@
     id="navbar"
     v-bind:class="{
       'navbar--scrolled': getPageScroll.scrolled,
-      'navbar--scrolled-up': getPageScroll.direction === ScrollDirection.UP && getPageScroll.scrolled,
+      'navbar--scrolled-up': getPageScroll.direction === ScrollDirection.UP,
     }"
   >
     <svg class="navbar__logo" @click="reloadPage()" aria-label="site logo">
@@ -35,7 +35,7 @@ export default {
     ...mapMutations('ui', [UI_MUTATIONS.TOGGLE_SIDENAV]),
     reloadPage,
     showSideNav() {
-      this.TOGGLE_SIDENAV(true);
+      this.TOGGLE_SIDENAV();
     },
   },
 };
