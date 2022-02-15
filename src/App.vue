@@ -1,5 +1,6 @@
 <template>
   <BaseNavbar />
+  <BaseSidenav />
   <HomePage />
   <BackTopArrow />
   <BaseFooter />
@@ -11,9 +12,10 @@ import BackTopArrow from '@/components/BackTopArrow';
 import { scrollMixin } from '@/mixins/ScrollMixin';
 import BaseNavbar from '@/components/BaseNavbar';
 import BaseFooter from '@/components/BaseFooter';
+import BaseSidenav from '@/components/BaseSidenav';
 export default {
   name: 'App',
-  components: { BaseNavbar, BackTopArrow, HomePage, BaseFooter },
+  components: { BaseSidenav, BaseNavbar, BackTopArrow, HomePage, BaseFooter },
   mixins: [scrollMixin],
 };
 </script>
