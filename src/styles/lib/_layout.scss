@@ -4,8 +4,6 @@
 
 @mixin container-base() {
   width: 100%;
-  padding-right: math.div(variables.$column-gap, 2);
-  padding-left: math.div(variables.$column-gap, 2);
   margin-right: auto;
   margin-left: auto;
 }
@@ -13,11 +11,6 @@
 @mixin row-base() {
   display: flex;
   flex-wrap: wrap;
-}
-
-// TODO
-@mixin grid-base() {
-  display: grid;
 }
 
 @mixin container($breakpoint: null) {
@@ -58,6 +51,42 @@
     @include make-col($number);
   } @else {
     @error 'Col number not found';
+  }
+}
+
+@mixin grid-auto($columns, $rows, $gap) {
+  display: grid;
+  @if $columns {
+    grid-auto-columns: $columns;
+  }
+  @if $rows {
+    grid-auto-rows: $rows;
+  }
+  @if $gap {
+    gap: $gap;
+  }
+}
+
+@mixin grid-template($columns: null, $rows: null, $gap: null) {
+  display: grid;
+  @if $columns {
+    grid-template-columns: $columns;
+  }
+  @if $rows {
+    grid-template-rows: $rows;
+  }
+  @if $gap {
+    gap: $gap;
+  }
+}
+
+@mixin width-columns($number, $breakpoint: null) {
+  @if $breakpoint {
+    @include breakpoint.show-for($breakpoint) {
+      width: math.percentage(math.div($number, variables.$columns));
+    }
+  } @else {
+    width: math.percentage(math.div($number, variables.$columns));
   }
 }
 
