@@ -1,4 +1,5 @@
 @use "scrollbar";
+@use 'colors';
 @use "variables";
 @use "typography";
 @use "lib/main";
@@ -16,4 +17,9 @@ body, html {
 
 * {
   box-sizing: border-box;
+}
+
+li::marker {
+  color: variables.$tart-orange;
+  content: '●' !important;
 }

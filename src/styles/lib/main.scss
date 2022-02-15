@@ -5,3 +5,11 @@
 
 @include layout.build-layout();
 @include spacing.build-spacing();
+
+.text-center {
+  text-align: center;
+}
+
+.align-self-center {
+  align-self: center;
+}
