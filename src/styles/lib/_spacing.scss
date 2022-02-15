@@ -19,9 +19,11 @@
     } @else if $selected-direction == 'y' {
       padding-left: $spacing;
       padding-right: $spacing;
+    } @else if $selected-direction == 'all' {
+      padding: $spacing;
     }
   } @else {
-    padding: $spacing
+    padding: $spacing;
   }
 }
 
@@ -52,9 +54,11 @@
     } @else if $selected-direction == 'y' {
       margin-left: $spacing;
       margin-right: $spacing;
+    } @else if $selected-direction == 'all' {
+      margin: $spacing;
     }
   } @else {
-    margin: $spacing
+    margin: $spacing;
   }
 }
 
