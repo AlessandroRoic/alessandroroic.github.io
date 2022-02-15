@@ -3,17 +3,23 @@
     class="navbar"
     id="navbar"
     v-bind:class="{
-      'navbar--scrolled': getPageScroll.scrolled,
-      'navbar--scrolled-up': getPageScroll.direction === ScrollDirection.UP,
+      'navbar--scrolled': isScrolled,
+      'navbar--scrolled-up': getPageScroll.direction === ScrollDirection.DOWN,
     }"
   >
     <svg class="navbar__logo" @click="reloadPage()" aria-label="site logo">
       <use href="~@/assets/icons/icons.svg#site-logo"></use>
     </svg>
 
-    <svg class="navbar__menu" @click="showSideNav()" v-if="getSideNavOpened === false" aria-label="menu button">
-      <use href="~@/assets/icons/icons.svg#menu-right"></use>
-    </svg>
+    <div>
+      <BaseLink href="#about">ABOUT</BaseLink>
+      <BaseLink href="#work">WORK</BaseLink>
+      <BaseLink href="#projects">PROJECTS</BaseLink>
+    </div>
+
+    <!--    <svg class="navbar__menu" @click="showSideNav()" v-if="getSideNavOpened === false" aria-label="menu button">-->
+    <!--      <use href="~@/assets/icons/icons.svg#menu-right"></use>-->
+    <!--    </svg>-->
   </nav>
 </template>
 
@@ -22,20 +28,25 @@ import { mapGetters, mapMutations } from 'vuex';
 import { reloadPage } from '@/helpers/utils';
 import { UI_MUTATIONS } from '@/store/ui/ui-mutations.enum';
 import { ScrollDirection } from '@/enums/scroll-direction.enum';
+import BaseLink from '@/components/BaseLink';
 
 export default {
   name: 'BaseNavbar',
+  components: { BaseLink },
   data: () => ({
     ScrollDirection,
   }),
   computed: {
     ...mapGetters('ui', ['getPageScroll', 'getSideNavOpened']),
+    isScrolled() {
+      return !this.getPageScroll.direction || this.getPageScroll.scrolled;
+    },
   },
   methods: {
     ...mapMutations('ui', [UI_MUTATIONS.TOGGLE_SIDENAV]),
     reloadPage,
     showSideNav() {
-      this.TOGGLE_SIDENAV();
+      // this.TOGGLE_SIDENAV();
     },
   },
 };
@@ -45,17 +56,20 @@ export default {
 @use '../styles/variables';
 @use '../styles/mixins';
 @use '../styles/lib/positioning';
-@use '../styles/lib/variables' as libvariables;
 @use '../styles/lib/layout';
+@use '../styles/lib/breakpoint';
 
 .navbar {
   @include positioning.fixed-top();
   @include layout.row();
+  @include breakpoint.show-for(desktop) {
+    transition: transform 0.3s;
+  }
   align-items: center;
   justify-content: space-between;
-  z-index: map-get(libvariables.$z-index, navbar);
+  z-index: map-get(variables.$z-index, navbar);
   padding: 10px;
-  transition: transform 0.3s;
+  transition: transform 0.5s;
 
   &--scrolled {
     box-shadow: 1px 4px 14px 0 rgba(0, 0, 0, 0.69);

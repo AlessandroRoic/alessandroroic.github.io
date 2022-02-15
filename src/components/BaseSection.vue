@@ -1,6 +1,6 @@
 <template>
-  <section class="section" :id="id">
-    <article class="section__content-wrapper">
+  <section :id="id">
+    <article class="section__wrapper">
       <div class="section__content">
         <slot></slot>
       </div>
@@ -25,18 +25,7 @@ export default {
 @use '../styles/lib/layout';
 
 .section {
-  @include layout.row();
-  align-content: center;
-  justify-content: center;
-  padding-top: 17vh;
-  padding-bottom: 17vh;
-
-  &__content-wrapper {
-    @include layout.col(12);
-    @include layout.col(10, tablet);
-    @include layout.col(8, desktop);
-    @include layout.col(6, desktop-m);
-    @include layout.col(4, desktop-l);
+  &__wrapper {
     box-shadow: variables.$card-shadow;
   }
 

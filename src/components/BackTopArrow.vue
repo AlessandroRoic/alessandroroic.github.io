@@ -24,12 +24,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '../styles/variables';
-@import '../styles/mixins';
+@use '../styles/variables';
+@use '../styles/mixins';
 
 .arrow {
-  @include scaleSvg(50px);
-  color: $tart-orange;
+  @include mixins.scaleSvg(50px);
+  color: variables.$tart-orange;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,7 +41,7 @@ export default {
   bottom: 0;
   left: 0;
   filter: drop-shadow(0px 0px 6px rgba(17, 20, 23, 0.7));
-  z-index: 100;
+  z-index: map-get(variables.$z-index, backTopArrow);
 
   &:active {
     transform: translateY(4px);
