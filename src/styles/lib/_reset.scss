@@ -35,48 +35,6 @@ main {
   display: block;
 }
 
-/**
- * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
- */
-
-%heading {
-  margin-top: 0; // 1
-  margin-bottom: variables.$headings-margin-bottom;
-  font-weight: variables.$headings-font-weight;
-  line-height: variables.$headings-line-height;
-}
-
-h1 {
-  @extend %heading;
-  font-size: variables.$h1-font-size;
-}
-
-h2 {
-  @extend %heading;
-  font-size: variables.$h2-font-size;
-}
-
-h3 {
-  @extend %heading;
-  font-size: variables.$h3-font-size;
-}
-
-h4 {
-  @extend %heading;
-  font-size: variables.$h4-font-size;
-}
-
-h5 {
-  @extend %heading;
-  font-size: variables.$h5-font-size;
-}
-
-h6 {
-  @extend %heading;
-  font-size: variables.$h6-font-size;
-}
-
 /* Grouping content
    ========================================================================== */
 
@@ -381,4 +339,61 @@ template {
 
 [hidden] {
   display: none;
+}
+
+/**
+ * Custom resets
+ */
+
+ol,
+ul {
+  list-style: none;
+  margin: 1rem;
+  padding: 0;
+}
+
+li {
+  padding-left: 0.5rem;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+
+%heading {
+  margin-top: 0; // 1
+  margin-bottom: variables.$headings-margin-bottom;
+  font-weight: variables.$headings-font-weight;
+  line-height: variables.$headings-line-height;
+}
+
+h1 {
+  @extend %heading;
+  font-size: variables.$h1-font-size;
+}
+
+h2 {
+  @extend %heading;
+  font-size: variables.$h2-font-size;
+}
+
+h3 {
+  @extend %heading;
+  font-size: variables.$h3-font-size;
+}
+
+h4 {
+  @extend %heading;
+  font-size: variables.$h4-font-size;
+}
+
+h5 {
+  @extend %heading;
+  font-size: variables.$h5-font-size;
+}
+
+h6 {
+  @extend %heading;
+  font-size: variables.$h6-font-size;
 }
