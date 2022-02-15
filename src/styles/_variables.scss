@@ -17,3 +17,10 @@ $card-shadow: black 0 5px 15px;
 $tart-orange-shadow: 8px 5px 0 -1px $tart-orange;
 $grey-shadow: $jet 0px 2px 8px 0px;
 $black-shadow: $eerie-black-2 0px 2px 8px 0px;
+
+// z-index
+$z-index: (
+        backTopArrow: 100,
+        navbar: 900,
+        sidenav: 999
+);

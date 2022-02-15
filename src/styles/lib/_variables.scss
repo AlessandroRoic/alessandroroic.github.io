@@ -1,8 +1,4 @@
 @use "sass:math";
-// z-index
-$z-index: (
-        navbar: 900
-);
 
 // breakpoints
 $grid-breakpoints: (
@@ -31,8 +27,7 @@ $columns: 12;
 $column-gap: 2rem;
 
 // spacing
-$spacer: 20px;
-
+$spacer: 1rem;
 $spacings: (
         auto: auto,
         '1/8': math.div($spacer, 8),
@@ -45,6 +40,7 @@ $spacings: (
         4: 4 * $spacer
 );
 $directions: (
+        all: '',
         top: t,
         bottom: b,
         right: r,
@@ -52,6 +48,7 @@ $directions: (
         x: x,
         y: y
 );
+
 // font
 $font-size-base: 1rem !default;
 
