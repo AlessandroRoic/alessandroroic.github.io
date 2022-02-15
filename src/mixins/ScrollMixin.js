@@ -17,19 +17,22 @@ export const scrollMixin = {
     ...mapMutations('ui', [UI_MUTATIONS.SET_PAGE_SCROLL]),
     onScroll(event) {
       const newValue = window.top.scrollY || window.pageYOffset || event.target.documentElement.scrollTop;
-      if (newValue !== this.oldValue) {
-        const calculatedPageScroll = {
-          scrolled: newValue > 200,
-          direction: newValue > this.oldValue ? ScrollDirection.DOWN : ScrollDirection.UP,
-        };
-        this.oldValue = newValue <= 0 ? 0 : newValue;
-        if (
-          calculatedPageScroll.scrolled !== this.getPageScroll.scrolled ||
-          calculatedPageScroll.direction !== this.getPageScroll.direction
-        ) {
-          this.SET_PAGE_SCROLL(calculatedPageScroll);
-        }
+      if (newValue === this.oldValue) return;
+      const calculatedPageScroll = {
+        scrolled: newValue > 100,
+        direction: this.checkDirection(newValue),
+      };
+      this.oldValue = newValue <= 0 ? 0 : newValue;
+      if (
+        calculatedPageScroll.scrolled !== this.getPageScroll.scrolled ||
+        calculatedPageScroll.direction !== this.getPageScroll.direction
+      ) {
+        this.SET_PAGE_SCROLL(calculatedPageScroll);
       }
+    },
+    checkDirection(newValue) {
+      if (newValue >= 0 && newValue <= 100) return null;
+      return newValue > this.oldValue ? ScrollDirection.DOWN : ScrollDirection.UP;
     },
   },
 };

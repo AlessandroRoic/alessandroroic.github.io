@@ -1,4 +1,3 @@
-import { ScrollDirection } from '@/enums/scroll-direction.enum';
 import { UI_MUTATIONS } from '@/store/ui/ui-mutations.enum';
 
 export const ui = {
@@ -7,7 +6,7 @@ export const ui = {
     sideNavOpened: false,
     pageScroll: {
       scrolled: false,
-      direction: ScrollDirection.DOWN,
+      direction: null,
     },
   }),
   mutations: {
