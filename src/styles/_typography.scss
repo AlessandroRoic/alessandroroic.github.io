@@ -2,9 +2,9 @@
 @use "sass:math";
 
 @font-face {
+  @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
   font-family: variables.$main-font;
   font-style: normal;
   font-weight: 400;
   font-display: auto;
-  src: url(~@/assets/fonts/Rubik-Regular.woff2) format('woff2');
 }
