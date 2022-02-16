@@ -21,7 +21,7 @@ You can find more information in the licence section.
 - Vue 3
 - AnimeJs
 - PurgeCss
-- Custom sass framework (in the works)
+- Custom Sass framework (in the works)
 
 ## Licence
 [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
