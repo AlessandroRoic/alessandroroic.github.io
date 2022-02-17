@@ -11,15 +11,15 @@
       <use href="~@/assets/icons/icons.svg#site-logo"></use>
     </svg>
 
-    <div>
+    <svg class="navbar__menu" @click="showSideNav()" v-if="isMobile && getSideNavOpened === false" aria-label="menu button">
+      <use href="~@/assets/icons/icons.svg#menu-right"></use>
+    </svg>
+
+    <div v-else>
       <BaseLink href="#about">ABOUT</BaseLink>
       <BaseLink href="#work">WORK</BaseLink>
       <BaseLink href="#projects">PROJECTS</BaseLink>
     </div>
-
-    <!--    <svg class="navbar__menu" @click="showSideNav()" v-if="getSideNavOpened === false" aria-label="menu button">-->
-    <!--      <use href="~@/assets/icons/icons.svg#menu-right"></use>-->
-    <!--    </svg>-->
   </nav>
 </template>
 
@@ -35,11 +35,24 @@ export default {
   components: { BaseLink },
   data: () => ({
     ScrollDirection,
+    mobileScreenWidth: 768,
+    windowWidth: window.innerWidth,
   }),
+  mounted() {
+    window.addEventListener('resize', () => {
+      this.windowWidth = window.innerWidth;
+    });
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize');
+  },
   computed: {
     ...mapGetters('ui', ['getPageScroll', 'getSideNavOpened']),
     isScrolled() {
       return !this.getPageScroll.direction || this.getPageScroll.scrolled;
+    },
+    isMobile() {
+      return this.windowWidth <= this.mobileScreenWidth;
     },
   },
   methods: {
