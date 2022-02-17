@@ -56,7 +56,7 @@ export default {
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
-  align-self: end;
+  align-self: flex-end;
 
   &__menu {
     background: variables.$jet;
@@ -87,7 +87,7 @@ export default {
 
   &__social-medias {
     @include layout.row();
-    align-items: end;
+    align-items: flex-end;
     flex-grow: 1;
   }
 }

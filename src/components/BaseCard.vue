@@ -88,7 +88,7 @@ export default {
   &__link-wrapper {
     @include layout.row();
     flex-grow: 1;
-    align-content: end;
+    align-content: flex-end;
   }
 
   &__link {
