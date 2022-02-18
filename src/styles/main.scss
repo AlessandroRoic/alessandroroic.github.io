@@ -11,12 +11,17 @@ body, html {
   background-color: variables.$eerie-black;
   color: variables.$cultured;
   scroll-behavior: smooth;
+  --scroll-behavior: smooth;
   font-family: 'Rubik', sans-serif;
   font-size: 19px;
 }
 
 * {
   box-sizing: border-box;
+}
+
+li {
+  padding-left: 0.5rem;
 }
 
 li::marker {
