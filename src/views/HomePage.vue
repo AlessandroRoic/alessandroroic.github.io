@@ -214,7 +214,7 @@ export default {
 
 .section {
   &__welcome {
-    font-size: 0.79rem;
+    font-size: 0.84rem;
   }
 
   &__pill {
