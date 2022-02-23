@@ -7,10 +7,3 @@ export const openSite = (siteUrl) => {
 export const downloadCv = () => {
   window.open('/assets/documents/RoicAlessandroCV.pdf', '_blank');
 };
-
-export const scrollTop = () =>
-  window.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: 'smooth',
-  });

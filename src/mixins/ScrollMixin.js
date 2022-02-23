@@ -9,7 +9,10 @@ export const scrollMixin = {
   beforeDestroy() {
     window.removeEventListener('scroll', this.onScroll);
   },
-  data: () => ({ oldValue: null }),
+  data: () => ({
+    oldValue: null,
+    scrollStartPosition: 100,
+  }),
   computed: {
     ...mapGetters('ui', ['getPageScroll']),
   },
@@ -19,7 +22,7 @@ export const scrollMixin = {
       const newValue = window.top.scrollY || window.pageYOffset || event.target.documentElement.scrollTop;
       if (newValue === this.oldValue) return;
       const calculatedPageScroll = {
-        scrolled: newValue > 100,
+        scrolled: newValue > this.scrollStartPosition,
         direction: this.checkDirection(newValue),
       };
       this.oldValue = newValue <= 0 ? 0 : newValue;
@@ -31,7 +34,7 @@ export const scrollMixin = {
       }
     },
     checkDirection(newValue) {
-      if (newValue >= 0 && newValue <= 100) return null;
+      if (newValue >= 0 && newValue <= this.scrollStartPosition) return null;
       return newValue > this.oldValue ? ScrollDirection.DOWN : ScrollDirection.UP;
     },
   },
