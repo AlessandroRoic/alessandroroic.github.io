@@ -11,7 +11,7 @@
       <use href="~@/assets/icons/icons.svg#site-logo"></use>
     </svg>
 
-    <svg class="navbar__menu" @click="showSideNav()" v-if="isMobile && getSideNavOpened === false" aria-label="menu button">
+    <svg class="navbar__menu" @click="TOGGLE_SIDENAV()" v-if="isMobile && getSideNavOpened === false" aria-label="menu button">
       <use href="~@/assets/icons/icons.svg#menu-right"></use>
     </svg>
 
@@ -35,7 +35,7 @@ export default {
   components: { BaseLink },
   data: () => ({
     ScrollDirection,
-    mobileScreenWidth: 768,
+    mobileScreenWidth: 425,
     windowWidth: window.innerWidth,
   }),
   mounted() {
@@ -58,9 +58,6 @@ export default {
   methods: {
     ...mapMutations('ui', [UI_MUTATIONS.TOGGLE_SIDENAV]),
     reloadPage,
-    showSideNav() {
-      // this.TOGGLE_SIDENAV();
-    },
   },
 };
 </script>

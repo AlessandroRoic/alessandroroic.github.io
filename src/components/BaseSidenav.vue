@@ -1,22 +1,14 @@
 <template>
-  <!--  <div @click="closeSideNav()">-->
-  <!--    <svg class="sidenav__close-button">-->
-  <!--      <use href="~@/assets/icons/icons.svg#close-sidenav"></use>-->
-  <!--    </svg>-->
-  <!--  </div>-->
-
-  <!--  <div class="mb-1"><a @click="closeSideNav()" class="sidenav____text" href="#about">ABOUT</a></div>-->
-  <!--  <div class="mb-1"><a @click="closeSideNav()" class="sidenav____text" href="#work">WORK</a></div>-->
-  <!--  <div class="mb-1"><a @click="closeSideNav()" class="sidenav____text" href="#projects">PROJECTS</a></div>-->
-
   <div class="sidenav" v-if="getSideNavOpened">
-    <div>
-      <div @click="closeSideNav()"></div>
-
-      <div class="sidenav__menu">
-        <svg class="sidenav__close-button">
-          <use href="~@/assets/icons/icons.svg#close-sidenav"></use>
-        </svg>
+    <div @click="closeSideNav()"></div>
+    <div class="sidenav__menu">
+      <div class="sidenav__links">
+        <BaseLink @click="closeSideNav()" class="sidenav__link" href="#about">ABOUT</BaseLink>
+        <BaseLink @click="closeSideNav()" class="sidenav__link" href="#work">WORK</BaseLink>
+        <BaseLink @click="closeSideNav()" class="sidenav__link" href="#projects">PROJECTS</BaseLink>
+      </div>
+      <div>
+        <SocialMedias />
       </div>
     </div>
   </div>
@@ -25,10 +17,12 @@
 <script>
 import { UI_MUTATIONS } from '@/store/ui/ui-mutations.enum';
 import { mapGetters, mapMutations } from 'vuex';
+import SocialMedias from '@/components/SocialMedias';
+import BaseLink from '@/components/BaseLink';
 
 export default {
   name: 'BaseSidenav',
-  components: {},
+  components: { BaseLink, SocialMedias },
   computed: {
     ...mapGetters('ui', ['getSideNavOpened']),
   },
@@ -47,6 +41,8 @@ export default {
 @use '../styles/lib/layout';
 
 .sidenav {
+  display: grid;
+  grid-template-columns: 60% 40%;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -54,26 +50,24 @@ export default {
   right: 0;
   z-index: map-get(variables.$z-index, sidenav);
   background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-direction: column;
-  align-self: flex-end;
 
   &__menu {
     background: variables.$jet;
-    @include layout.col(3);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 90% 10%;
   }
 
-  &__text {
-    color: variables.$cultured;
-    font-weight: bold;
-    font-size: 1.2rem;
-    text-decoration: underline;
-    text-decoration-color: variables.$tart-orange;
+  &__links {
+    display: grid;
+    grid-template-columns: fit-content(1fr);
+    justify-content: center;
+    align-content: center;
+    gap: 1rem;
+  }
 
-    &:hover {
-      color: variables.$tart-orange;
-      text-decoration-color: variables.$cultured;
-    }
+  &__link {
+    font-size: 1.2rem;
   }
 
   &__close-button {
@@ -86,9 +80,6 @@ export default {
   }
 
   &__social-medias {
-    @include layout.row();
-    align-items: flex-end;
-    flex-grow: 1;
   }
 }
 </style>
