@@ -1,36 +1,28 @@
 <template>
-  <div v-bind:class="{ 'g-0': !isFooter }" class="social-medias">
-    <div v-bind:class="isFooter ? 'col-auto' : 'col-6 desktop:col-3 mb-1'">
-      <button @click="openSite('github.com/AlessandroRoic')" aria-label="github" class="social-medias__button" type="button">
-        <svg class="social-medias__icon">
-          <use href="~@/assets/icons/icons.svg#github"></use>
-        </svg>
-      </button>
-    </div>
+  <div v-bind:class="isFooter ? 'social-medias--footer' : 'social-medias'">
+    <button @click="openSite('github.com/AlessandroRoic')" aria-label="github">
+      <svg class="social-medias__icon">
+        <use href="~@/assets/icons/icons.svg#github"></use>
+      </svg>
+    </button>
 
-    <div v-bind:class="isFooter ? 'col-auto' : 'col-6 desktop:col-3 mb-1'">
-      <button @click="openSite('linkedin.com/in/alessandroroic')" aria-label="linkedin" class="social-medias__button" type="button">
-        <svg class="social-medias__icon">
-          <use href="~@/assets/icons/icons.svg#linkedin"></use>
-        </svg>
-      </button>
-    </div>
+    <button @click="openSite('linkedin.com/in/alessandroroic')" aria-label="linkedin">
+      <svg class="social-medias__icon">
+        <use href="~@/assets/icons/icons.svg#linkedin"></use>
+      </svg>
+    </button>
 
-    <div v-bind:class="isFooter ? 'col-auto' : 'col-6 desktop:col-3 mb-1'">
-      <button @click="downloadCv()" aria-label="cv" class="social-medias__button" type="button">
-        <svg class="social-medias__icon">
-          <use href="~@/assets/icons/icons.svg#cv"></use>
-        </svg>
-      </button>
-    </div>
+    <button @click="downloadCv()" aria-label="cv">
+      <svg class="social-medias__icon">
+        <use href="~@/assets/icons/icons.svg#cv"></use>
+      </svg>
+    </button>
 
-    <div v-bind:class="isFooter ? 'col-auto' : 'col-6 desktop:col-3 mb-1'">
-      <a href="mailto:alessandro.roic@gmail.com" aria-label="email" class="social-medias__button">
-        <svg class="social-medias__icon">
-          <use href="~@/assets/icons/icons.svg#email"></use>
-        </svg>
-      </a>
-    </div>
+    <a href="mailto:alessandro.roic@gmail.com" aria-label="email">
+      <svg class="social-medias__icon">
+        <use href="~@/assets/icons/icons.svg#email"></use>
+      </svg>
+    </a>
   </div>
 </template>
 
@@ -39,9 +31,7 @@ import { downloadCv, openSite } from '@/helpers/utils';
 
 export default {
   name: 'SocialMedias',
-  props: {
-    isFooter: null,
-  },
+  props: ['isFooter'],
   methods: {
     openSite,
     downloadCv,
@@ -56,8 +46,17 @@ export default {
 @use '../styles/lib/positioning';
 
 .social-medias {
-  @include layout.row();
-  @include positioning.centered();
+  display: grid;
+  grid-template-columns: repeat(2, fit-content(50%));
+  align-content: center;
+  justify-content: center;
+
+  &--footer {
+    display: grid;
+    grid-template-columns: repeat(4, fit-content(25%));
+    align-content: center;
+    justify-content: center;
+  }
 
   &__icon {
     @include mixins.scaleSvg(32px);
@@ -68,11 +67,6 @@ export default {
       fill: variables.$tart-orange;
       color: variables.$tart-orange;
     }
-  }
-
-  &__button {
-    border: none;
-    background: none;
   }
 }
 </style>
