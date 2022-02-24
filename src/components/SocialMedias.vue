@@ -18,7 +18,7 @@
       </svg>
     </button>
 
-    <a href="mailto:alessandro.roic@gmail.com" aria-label="email">
+    <a class="social-medias__icon-wrapper" href="mailto:alessandro.roic@gmail.com" aria-label="email">
       <svg class="social-medias__icon">
         <use href="~@/assets/icons/icons.svg#email"></use>
       </svg>
@@ -50,12 +50,18 @@ export default {
   grid-template-columns: repeat(2, fit-content(50%));
   align-content: center;
   justify-content: center;
+  gap: 1rem 1rem;
 
   &--footer {
     display: grid;
     grid-template-columns: repeat(4, fit-content(25%));
     align-content: center;
     justify-content: center;
+  }
+
+  &__icon-wrapper {
+    align-self: center;
+    justify-self: center;
   }
 
   &__icon {

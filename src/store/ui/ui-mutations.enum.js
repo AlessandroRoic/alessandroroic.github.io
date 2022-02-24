@@ -1,4 +1,4 @@
 export const UI_MUTATIONS = {
-  SET_PAGE_SCROLL: 'SET_PAGE_SCROLL',
-  TOGGLE_SIDENAV: 'TOGGLE_SIDENAV',
+  SET_PAGE_SCROLL: 'setPageScroll',
+  TOGGLE_SIDENAV: 'toggleSidenav',
 };

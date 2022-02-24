@@ -30,7 +30,7 @@ export const scrollMixin = {
         calculatedPageScroll.scrolled !== this.getPageScroll.scrolled ||
         calculatedPageScroll.direction !== this.getPageScroll.direction
       ) {
-        this.SET_PAGE_SCROLL(calculatedPageScroll);
+        this.setPageScroll(calculatedPageScroll);
       }
     },
     checkDirection(newValue) {

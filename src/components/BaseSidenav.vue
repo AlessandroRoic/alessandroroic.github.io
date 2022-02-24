@@ -1,11 +1,11 @@
 <template>
   <div class="sidenav" v-if="getSideNavOpened">
-    <div @click="closeSideNav()"></div>
+    <div @click="toggleSidenav()"></div>
     <div class="sidenav__menu">
       <div class="sidenav__links">
-        <BaseLink @click="closeSideNav()" class="sidenav__link" href="#about">ABOUT</BaseLink>
-        <BaseLink @click="closeSideNav()" class="sidenav__link" href="#work">WORK</BaseLink>
-        <BaseLink @click="closeSideNav()" class="sidenav__link" href="#projects">PROJECTS</BaseLink>
+        <BaseLink @click="toggleSidenav()" class="sidenav__link" href="#about">ABOUT</BaseLink>
+        <BaseLink @click="toggleSidenav()" class="sidenav__link" href="#work">WORK</BaseLink>
+        <BaseLink @click="toggleSidenav()" class="sidenav__link" href="#projects">PROJECTS</BaseLink>
       </div>
       <div>
         <SocialMedias />
@@ -28,9 +28,6 @@ export default {
   },
   methods: {
     ...mapMutations('ui', [UI_MUTATIONS.TOGGLE_SIDENAV]),
-    closeSideNav() {
-      this.TOGGLE_SIDENAV();
-    },
   },
 };
 </script>
@@ -55,7 +52,7 @@ export default {
     background: variables.$jet;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 90% 10%;
+    grid-template-rows: 88% 12%;
   }
 
   &__links {
@@ -68,18 +65,6 @@ export default {
 
   &__link {
     font-size: 1.2rem;
-  }
-
-  &__close-button {
-    @include mixins.scaleSvg(32px);
-    color: variables.$cultured;
-
-    &:hover {
-      color: variables.$tart-orange;
-    }
-  }
-
-  &__social-medias {
   }
 }
 </style>

@@ -2,7 +2,7 @@
   <nav
     class="navbar"
     id="navbar"
-    v-bind:class="{
+    :class="{
       'navbar--scrolled': isScrolled,
       'navbar--scrolled-up': getPageScroll.direction === ScrollDirection.DOWN,
     }"
@@ -11,7 +11,7 @@
       <use href="~@/assets/icons/icons.svg#site-logo"></use>
     </svg>
 
-    <svg class="navbar__menu" @click="TOGGLE_SIDENAV()" v-if="isMobile && getSideNavOpened === false" aria-label="menu button">
+    <svg v-if="isMobile" @click="toggleSidenav()" class="navbar__menu" aria-label="menu button">
       <use href="~@/assets/icons/icons.svg#menu-right"></use>
     </svg>
 
