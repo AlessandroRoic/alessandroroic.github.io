@@ -8,16 +8,13 @@
   </section>
 </template>
 
-<script>
-export default {
-  name: 'BaseSection',
-  props: {
-    id: {
-      type: String,
-      required: true,
-    },
+<script setup>
+defineProps({
+  id: {
+    type: String,
+    required: true,
   },
-};
+});
 </script>
 
 <style scoped lang="scss">

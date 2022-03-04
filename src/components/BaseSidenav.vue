@@ -1,5 +1,5 @@
 <template>
-  <div class="sidenav" v-if="getSideNavOpened">
+  <div class="sidenav" v-if="sideNavOpened">
     <div @click="toggleSidenav()"></div>
     <div class="sidenav__menu">
       <div class="sidenav__links">
@@ -14,22 +14,15 @@
   </div>
 </template>
 
-<script>
-import { UI_MUTATIONS } from '@/store/ui/ui-mutations.enum';
-import { mapGetters, mapMutations } from 'vuex';
+<script setup>
 import SocialMedias from '@/components/SocialMedias';
 import BaseLink from '@/components/BaseLink';
+import { useUiStore } from '@/store/UIStore';
+import { storeToRefs } from 'pinia/dist/pinia';
 
-export default {
-  name: 'BaseSidenav',
-  components: { BaseLink, SocialMedias },
-  computed: {
-    ...mapGetters('ui', ['getSideNavOpened']),
-  },
-  methods: {
-    ...mapMutations('ui', [UI_MUTATIONS.TOGGLE_SIDENAV]),
-  },
-};
+const uiStore = useUiStore();
+const { sideNavOpened } = storeToRefs(uiStore);
+const { toggleSidenav } = uiStore;
 </script>
 
 <style scoped lang="scss">
@@ -52,7 +45,7 @@ export default {
     background: variables.$jet;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 88% 12%;
+    grid-template-rows: 86% 14%;
   }
 
   &__links {

@@ -5,11 +5,6 @@
   </footer>
 </template>
 
-<script>
+<script setup>
 import SocialMedias from '@/components/SocialMedias';
-
-export default {
-  name: 'BaseFooter',
-  components: { SocialMedias },
-};
 </script>

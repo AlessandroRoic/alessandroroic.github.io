@@ -4,7 +4,7 @@
     id="navbar"
     :class="{
       'navbar--scrolled': isScrolled,
-      'navbar--scrolled-up': getPageScroll.direction === ScrollDirection.DOWN,
+      'navbar--scrolled-up': pageScroll.direction === ScrollDirection.DOWN,
     }"
   >
     <svg class="navbar__logo" @click="reloadPage()" aria-label="site logo">
@@ -23,43 +23,20 @@
   </nav>
 </template>
 
-<script>
-import { mapGetters, mapMutations } from 'vuex';
+<script setup>
 import { reloadPage } from '@/helpers/utils';
-import { UI_MUTATIONS } from '@/store/ui/ui-mutations.enum';
 import { ScrollDirection } from '@/enums/scroll-direction.enum';
 import BaseLink from '@/components/BaseLink';
+import { breakpoints } from '@/helpers/breakpoints';
+import { computed } from 'vue';
+import { useUiStore } from '@/store/UIStore';
+import { storeToRefs } from 'pinia/dist/pinia';
 
-export default {
-  name: 'BaseNavbar',
-  components: { BaseLink },
-  data: () => ({
-    ScrollDirection,
-    mobileScreenWidth: 425,
-    windowWidth: window.innerWidth,
-  }),
-  mounted() {
-    window.addEventListener('resize', () => {
-      this.windowWidth = window.innerWidth;
-    });
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize');
-  },
-  computed: {
-    ...mapGetters('ui', ['getPageScroll', 'getSideNavOpened']),
-    isScrolled() {
-      return !this.getPageScroll.direction || this.getPageScroll.scrolled;
-    },
-    isMobile() {
-      return this.windowWidth <= this.mobileScreenWidth;
-    },
-  },
-  methods: {
-    ...mapMutations('ui', [UI_MUTATIONS.TOGGLE_SIDENAV]),
-    reloadPage,
-  },
-};
+const uiStore = useUiStore();
+const { toggleSidenav } = uiStore;
+const { pageScroll } = storeToRefs(uiStore);
+const isMobile = breakpoints.smaller('mobile-l');
+const isScrolled = computed(() => !pageScroll.direction || pageScroll.scrolled);
 </script>
 
 <style scoped lang="scss">

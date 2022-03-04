@@ -35,21 +35,16 @@
 
     <BaseSection id="work">
       <h1 class="text-tart-orange">Work</h1>
-      <div class="work__cards">
-        <BaseCard>
+      <SwipeCard v-slot="{ index }" :card-number="3">
+        <BaseCard v-if="index === 0">
           <template #title><h2 class="text-tart-orange">Accenture</h2></template>
           <template #content>
             <h3>Front End Developer</h3>
             <p class="mt-1">February 2021 - Currently</p>
             <ul>
-              <li>
-                Designed and developed autonomously a web application for data visualization <span class="text-tart-orange">(Nexi)</span>
-              </li>
-              <li>
-                Optimized and improved a ui-kit embedded in a service platform
-                <span class="text-tart-orange">(Italian Ministry of Economy)</span>
-              </li>
-              <li>Build services and components for a customer service platform <span class="text-tart-orange">(Poste Italiane)</span></li>
+              <li>Designed and developed autonomously a web application for data visualization (Nexi)</li>
+              <li>Optimized and improved a ui-kit embedded in a service platform (Italian Ministry of Economy)</li>
+              <li>Build services and components for a customer service platform (Poste Italiane)</li>
               <li>
                 Collaborated in a Scrum team, following closely and participated actively in daily activities with the engineers, designers
                 and clients.
@@ -58,7 +53,7 @@
             </ul>
           </template>
         </BaseCard>
-        <BaseCard>
+        <BaseCard v-if="index === 1">
           <template #title><h2 class="text-tart-orange">Jpanik</h2></template>
           <template #content>
             <h3>Full Stack Developer</h3>
@@ -69,14 +64,14 @@
                 designed for clinical-hospital management
               </li>
               <li>
-                Integrated an applet into the platform that processes and displays an interactive graph using the elaborated data using the
-                Chart.js library.
+                Integrated an applet into the platform that processes and displays an interactive graph using the elaborated data through
+                the Chart.js library.
               </li>
               <li>Technologies used: Angular/AngularJS, Java/Java EE, Spring, REST API, PostgreSQL, MongoDB</li>
             </ul>
           </template>
         </BaseCard>
-        <BaseCard>
+        <BaseCard v-if="index === 2">
           <template #title><h2 class="text-tart-orange">University</h2></template>
           <template #content>
             <h3>Computer Science Bachelor</h3>
@@ -98,41 +93,41 @@
             </ul>
           </template>
         </BaseCard>
-      </div>
+      </SwipeCard>
     </BaseSection>
 
     <BaseSection id="projects">
       <h1 class="text-tart-orange">Projects</h1>
       <div class="projects__cards">
-        <BaseCard>
+        <BaseCard :centerText="true">
           <template #logo>
             <svg width="80" height="80" aria-label="site logo">
               <use href="~@/assets/icons/icons.svg#site-logo"></use>
             </svg>
           </template>
-          <template #title-center><b>Personal Website</b></template>
+          <template #title><b>Personal Website</b></template>
           <template #content>You can check this site source code on github</template>
           <template #link>
             <button @click="openSite('github.com/AlessandroRoic/alessandroroic.github.io')">Check it</button>
           </template>
         </BaseCard>
 
-        <BaseCard>
+        <BaseCard :centerText="true">
           <template #logo>
             <img src="~@/assets/images/curiosone.png" alt="e-quality logo" />
           </template>
-          <template #title-center><b>E-Quality</b></template>
+          <template #title><b>E-Quality</b></template>
           <template #content>Gamification built for kids on gender equality</template>
           <template #link>
             <button @click="openSite('github.com/AlessandroRoic/E-Quality')">Check it</button>
           </template>
         </BaseCard>
 
-        <BaseCard>
+        <BaseCard :centerText="true">
           <template #logo>
             <img src="~@/assets/images/curiosone.png" alt="airbone assault logo" />
           </template>
-          <template #title-center><b>Airborne Assault</b></template>
+          <template #title><b>Airborne Assault</b></template>
           <template #content>Video game build with libGDX</template>
           <template #link>
             <button @click="openSite('github.com/AlessandroRoic/AirborneAssault')">Check it</button>
@@ -143,38 +138,12 @@
   </main>
 </template>
 
-<script>
+<script setup>
 import BaseSection from '@/components/BaseSection';
 import BaseCard from '@/components/BaseCard';
-import { openSite } from '@/helpers/utils';
-
-export default {
-  name: 'HomePage',
-  components: {
-    BaseCard,
-    BaseSection,
-  },
-  methods: {
-    openSite,
-  },
-  data: () => ({
-    pills: [
-      'Javascript (ES6+)',
-      'Typescript',
-      'Angular',
-      'Vue',
-      'Node.js',
-      'Sass',
-      'NgRx',
-      'RxJs',
-      'Redux',
-      'Java EE',
-      'Spring',
-      'PostgreSQL',
-      'Scrum',
-    ],
-  }),
-};
+import SwipeCard from '@/components/SwipeCard';
+import { ref } from 'vue';
+const pills = ref(['Javascript (ES6+)', 'Typescript', 'Angular', 'Vue', 'Sass', 'NgRx', 'RxJs', 'Redux']);
 </script>
 
 <style scoped lang="scss">
@@ -230,12 +199,6 @@ export default {
     &-wrapper {
       @include layout.row();
     }
-  }
-}
-
-.work {
-  &__cards {
-    @include layout.grid-template(repeat(1, minmax(0, 1fr)), null, 1rem);
   }
 }
 

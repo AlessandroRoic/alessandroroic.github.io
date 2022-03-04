@@ -4,16 +4,13 @@
   </a>
 </template>
 
-<script>
-export default {
-  name: 'BaseLink',
-  props: {
-    href: {
-      type: String,
-      required: true,
-    },
+<script setup>
+defineProps({
+  href: {
+    type: String,
+    required: true,
   },
-};
+});
 </script>
 
 <style scoped lang="scss">

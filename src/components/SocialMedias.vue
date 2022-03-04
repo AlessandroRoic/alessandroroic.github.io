@@ -26,17 +26,9 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { downloadCv, openSite } from '@/helpers/utils';
-
-export default {
-  name: 'SocialMedias',
-  props: ['isFooter'],
-  methods: {
-    openSite,
-    downloadCv,
-  },
-};
+defineProps(['isFooter']);
 </script>
 
 <style scoped lang="scss">
