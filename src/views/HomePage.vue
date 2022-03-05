@@ -46,8 +46,10 @@
               <li>Optimized and improved a ui-kit embedded in a service platform (Italian Ministry of Economy)</li>
               <li>Build services and components for a customer service platform (Poste Italiane)</li>
               <li>
-                Collaborated in a Scrum team, following closely and participated actively in daily activities with the engineers, designers
-                and clients.
+                <span
+                  >Collaborated in a Scrum team, following closely and participated actively in daily activities with the engineers,
+                  designers and clients.</span
+                >
               </li>
               <li>Technologies used: Angular, NgRx, RxJs, Javascript (ES6+), SCSS</li>
             </ul>
@@ -60,12 +62,16 @@
             <p class="mt-1">October 2019 - February 2021</p>
             <ul>
               <li>
-                Developed Back End services with Spring framework suite and Front End components with Angular, for a web enterprise platform
-                designed for clinical-hospital management
+                <span
+                  >Developed Back End services with Spring framework suite and Front End components with Angular, for a web enterprise
+                  platform designed for clinical-hospital management</span
+                >
               </li>
               <li>
-                Integrated an applet into the platform that processes and displays an interactive graph using the elaborated data through
-                the Chart.js library.
+                <span
+                  >Integrated an applet into the platform that processes and displays an interactive graph using the elaborated data through
+                  the Chart.js library.</span
+                >
               </li>
               <li>Technologies used: Angular/AngularJS, Java/Java EE, Spring, REST API, PostgreSQL, MongoDB</li>
             </ul>
@@ -79,16 +85,17 @@
             <p class="mt-1">September 2016 – April 2020</p>
             <ul>
               <li>
-                <span class="text-tart-orange">E-Quality</span>: gamified video game built for kids to raise awareness on gender equality in
-                collaboration with the Italian Regional Councilor for Equal Opportunities
+                <span class="text-tart-orange"><b>E-Quality</b></span
+                >: gamified video game built for kids to raise a wareness on gender equality in collaboration with the Italian Regional
+                Councilor for Equal Opportunities
               </li>
               <li>
-                <span class="text-tart-orange">Curiosone Bot</span>
-                : interactive chat bot written in Java during the Programming Methodologies course
+                <span class="text-tart-orange"><b>Curiosone Bot</b></span
+                >: interactive chat bot written in Java during the Programming Methodologies course
               </li>
               <li>
-                <span class="text-tart-orange">Airborne Assault</span>
-                : video game build with libGDX for the university Java course integrated into the Curiosone Bot project
+                <span class="text-tart-orange"><b>Airborne Assault</b></span
+                >: video game build with libGDX for the university Java course integrated into the Curiosone Bot project
               </li>
             </ul>
           </template>
@@ -143,6 +150,8 @@ import BaseSection from '@/components/BaseSection';
 import BaseCard from '@/components/BaseCard';
 import SwipeCard from '@/components/SwipeCard';
 import { ref } from 'vue';
+import { openSite } from '@/helpers/utils';
+
 const pills = ref(['Javascript (ES6+)', 'Typescript', 'Angular', 'Vue', 'Sass', 'NgRx', 'RxJs', 'Redux']);
 </script>
 
