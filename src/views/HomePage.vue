@@ -35,7 +35,7 @@
 
     <BaseSection id="work">
       <h1 class="text-tart-orange">Work</h1>
-      <SwipeCard v-slot="{ index }" :card-number="3">
+      <SwipeCard v-slot="{ index }" :card-number="3" style-class="work__cards">
         <BaseCard v-if="index === 0">
           <template #title><h2 class="text-tart-orange">Accenture</h2></template>
           <template #content>
@@ -217,6 +217,26 @@ const pills = ref(['Javascript (ES6+)', 'Typescript', 'Angular', 'Vue', 'Sass', 
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
     @include layout.grid-template(repeat(1, minmax(0, 1fr)), null, 1rem);
+  }
+}
+
+.work {
+  &__cards {
+    @include breakpoint.show-for(mobile-s) {
+      height: 1050px;
+    }
+    @include breakpoint.show-for(mobile-m) {
+      height: 850px;
+    }
+    @include breakpoint.show-for(mobile-l) {
+      height: 740px;
+    }
+    @include breakpoint.show-for(tablet) {
+      height: 500px;
+    }
+    @include breakpoint.show-for-range(desktop, desktop-l) {
+      height: 400px;
+    }
   }
 }
 </style>

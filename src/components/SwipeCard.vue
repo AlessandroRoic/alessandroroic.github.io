@@ -1,5 +1,5 @@
 <template>
-  <div class="swipe" ref="swipeWrapper" @wheel.prevent="manageSwipe($event)">
+  <div class="swipe" ref="swipeWrapper" @wheel.prevent="manageSwipe($event)" :class="styleClass">
     <div class="swipe__bullet-wrapper">
       <button
         v-for="bullet in cardNumber"
@@ -21,6 +21,10 @@ import { breakpoints } from '@/helpers/breakpoints';
 const props = defineProps({
   cardNumber: {
     type: Number,
+    required: true,
+  },
+  styleClass: {
+    type: String,
     required: true,
   },
 });
