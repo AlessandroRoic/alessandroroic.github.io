@@ -18,7 +18,7 @@
       </svg>
     </button>
 
-    <a class="social-medias__icon-wrapper" href="mailto:alessandro.roic@gmail.com" aria-label="email">
+    <a class="social-medias__icon-wrapper" href="mailto:alessandro.roic@gmail.com" target="_blank" aria-label="email">
       <svg class="social-medias__icon">
         <use href="~@/assets/icons/icons.svg#email"></use>
       </svg>

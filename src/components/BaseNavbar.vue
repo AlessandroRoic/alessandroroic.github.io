@@ -19,6 +19,7 @@
       <BaseLink href="#about">ABOUT</BaseLink>
       <BaseLink href="#work">WORK</BaseLink>
       <BaseLink href="#projects">PROJECTS</BaseLink>
+      <BaseLink href="#contacts">CONTACTS</BaseLink>
     </div>
   </nav>
 </template>

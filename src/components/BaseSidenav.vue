@@ -6,6 +6,7 @@
         <BaseLink @click="toggleSidenav()" class="sidenav__link" href="#about">ABOUT</BaseLink>
         <BaseLink @click="toggleSidenav()" class="sidenav__link" href="#work">WORK</BaseLink>
         <BaseLink @click="toggleSidenav()" class="sidenav__link" href="#projects">PROJECTS</BaseLink>
+        <BaseLink @click="toggleSidenav()" class="sidenav__link" href="#contacts">CONTACTS</BaseLink>
       </div>
       <div>
         <SocialMedias />

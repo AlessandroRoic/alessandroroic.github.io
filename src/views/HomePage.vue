@@ -1,13 +1,15 @@
 <template>
   <main class="main-container">
     <BaseSection id="info" class="align-self-center">
-      <svg viewBox="0 0 169 60" aria-label="welcome card" class="section__welcome">
-        <use href="~@/assets/icons/icons.svg#welcome-card"></use>
-      </svg>
+      <h1 class="section__welcome">
+        <svg viewBox="0 0 170 70" aria-label="welcome card">
+          <use href="~@/assets/icons/icons.svg#welcome-card"></use>
+        </svg>
+      </h1>
     </BaseSection>
 
     <BaseSection id="about">
-      <h1 class="text-tart-orange">About Me</h1>
+      <h2 class="text-tart-orange">About Me</h2>
       <div class="about__summary">
         <img class="about__side-photo" alt="profile" src="~@/assets/images/profile.webp" aria-label="profile picture" />
         <div class="m-auto">
@@ -19,7 +21,7 @@
       </div>
       <hr class="mx-2" />
       <h2 class="text-tart-orange">My Skills</h2>
-      <div>Here some languages, frameworks and technologies that I'm using:</div>
+      <div>Here some of the languages, frameworks and technologies that I'm using:</div>
       <div class="section__pill-wrapper">
         <div v-for="pill in pills" :key="pill" class="section__pill">
           {{ pill }}
@@ -34,7 +36,7 @@
     </BaseSection>
 
     <BaseSection id="work">
-      <h1 class="text-tart-orange">Work</h1>
+      <h2 class="text-tart-orange">Work</h2>
       <SwipeCard v-slot="{ index }" :card-number="3" style-class="work__cards">
         <BaseCard v-if="index === 0">
           <template #title><h2 class="text-tart-orange">Accenture</h2></template>
@@ -104,7 +106,7 @@
     </BaseSection>
 
     <BaseSection id="projects">
-      <h1 class="text-tart-orange">Projects</h1>
+      <h2 class="text-tart-orange">Projects</h2>
       <div class="projects__cards">
         <BaseCard :centerText="true">
           <template #logo>
@@ -115,7 +117,7 @@
           <template #title><b>Personal Website</b></template>
           <template #content>You can check this site source code on github</template>
           <template #link>
-            <button @click="openSite('github.com/AlessandroRoic/alessandroroic.github.io')">Check it</button>
+            <BaseButton @click="openSite('github.com/AlessandroRoic/alessandroroic.github.io')">Check it</BaseButton>
           </template>
         </BaseCard>
 
@@ -126,7 +128,7 @@
           <template #title><b>E-Quality</b></template>
           <template #content>Gamification built for kids on gender equality</template>
           <template #link>
-            <button @click="openSite('github.com/AlessandroRoic/E-Quality')">Check it</button>
+            <BaseButton @click="openSite('github.com/AlessandroRoic/E-Quality')">Check it</BaseButton>
           </template>
         </BaseCard>
 
@@ -137,9 +139,22 @@
           <template #title><b>Airborne Assault</b></template>
           <template #content>Video game build with libGDX</template>
           <template #link>
-            <button @click="openSite('github.com/AlessandroRoic/AirborneAssault')">Check it</button>
+            <BaseButton @click="openSite('github.com/AlessandroRoic/AirborneAssault')">Check it</BaseButton>
           </template>
         </BaseCard>
+      </div>
+    </BaseSection>
+
+    <BaseSection id="contacts" class="contacts">
+      <h2 class="text-tart-orange">Get in touch</h2>
+      <div class="mt-1 mb-1">
+        I'm currenty looking for opportunities in Toronto, if you have any and you're interested in my curriculum and want to contact me,
+        please do!
+      </div>
+      <div class="text-center">
+        <BaseButton>
+          <a class="reset-link" href="mailto:alessandro.roic@gmail.com" target="_blank" aria-label="email">Mail me</a>
+        </BaseButton>
       </div>
     </BaseSection>
   </main>
@@ -151,6 +166,7 @@ import BaseCard from '@/components/BaseCard';
 import SwipeCard from '@/components/SwipeCard';
 import { ref } from 'vue';
 import { openSite } from '@/helpers/utils';
+import BaseButton from '@/components/BaseButton';
 
 const pills = ref(['Javascript (ES6+)', 'Typescript', 'Angular', 'Vue', 'Sass', 'NgRx', 'RxJs', 'Redux']);
 </script>
@@ -161,6 +177,7 @@ const pills = ref(['Javascript (ES6+)', 'Typescript', 'Angular', 'Vue', 'Sass', 
 @use '~@/styles/lib/layout';
 @use '~@/styles/lib/spacing';
 @use '~@/styles/lib/breakpoint';
+@use '~@/styles/utilities';
 
 .main-container {
   @include layout.container();
@@ -193,6 +210,8 @@ const pills = ref(['Javascript (ES6+)', 'Typescript', 'Angular', 'Vue', 'Sass', 
 .section {
   &__welcome {
     font-size: 0.84rem;
+    margin-bottom: 0;
+    font-weight: 500;
   }
 
   &__pill {
@@ -238,5 +257,9 @@ const pills = ref(['Javascript (ES6+)', 'Typescript', 'Angular', 'Vue', 'Sass', 
       height: 400px;
     }
   }
+}
+
+.contacts {
+  margin-bottom: 20rem;
 }
 </style>

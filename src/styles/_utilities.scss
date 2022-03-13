@@ -1,0 +1,6 @@
+@use "variables";
+
+.reset-link {
+  text-decoration: none;
+  color: variables.$cultured;
+}

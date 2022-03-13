@@ -56,22 +56,6 @@ defineProps(['centerText']);
 
   &__link {
     text-align: center;
-
-    ::v-slotted(button) {
-      color: variables.$cultured;
-      border: 2px solid variables.$tart-orange;
-      border-radius: variables.$card-border-radius;
-      background-color: variables.$eerie-black;
-      padding: 5px 10px 5px 10px;
-
-      &:hover {
-        box-shadow: variables.$black-shadow;
-      }
-
-      &:active {
-        transform: translateY(4px);
-      }
-    }
   }
 }
 </style>
