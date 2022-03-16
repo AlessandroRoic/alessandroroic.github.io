@@ -5,5 +5,5 @@ export const openSite = (siteUrl) => {
 };
 
 export const downloadCv = () => {
-  window.open('/assets/documents/RoicAlessandroCV.pdf', '_blank');
+  window.open('/RoicAlessandroCV.pdf', '_blank');
 };
