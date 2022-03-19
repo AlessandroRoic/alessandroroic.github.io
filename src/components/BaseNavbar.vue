@@ -32,22 +32,21 @@ import { breakpoints } from '@/helpers/breakpoints';
 import { computed, ref, watch } from 'vue';
 import { useCScroll } from '@/composables/ScrollComposable';
 import { useUiStore } from '@/store/UIStore';
-import { useScroll } from '@vueuse/core/index';
 
 const uiStore = useUiStore();
 const { toggleSidenav } = uiStore;
 
 const isMobile = breakpoints.smaller('mobile-l');
 
-const { isScrolled, direction } = useCScroll();
+const { isScrolled, direction, isScrolling } = useCScroll();
+const isLinkClicked = ref(false);
 const isPageScrolled = computed(() => !direction.value || isScrolled.value);
 const isClosed = computed(() => direction.value === ScrollDirection.DOWN);
 
-const isLinkClicked = ref(false);
-const { isScrolling } = useScroll(window);
 const closeNavbar = () => {
   isLinkClicked.value = true;
 };
+
 watch(isScrolling, (newValue, oldValue) => {
   if (isLinkClicked.value && !newValue && oldValue) {
     direction.value = ScrollDirection.DOWN;
