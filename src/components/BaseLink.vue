@@ -1,5 +1,5 @@
 <template>
-  <a v-bind:href="href" class="base-link">
+  <a v-bind:href="href" class="base-link" @click="$emit('click')">
     <slot></slot>
   </a>
 </template>
