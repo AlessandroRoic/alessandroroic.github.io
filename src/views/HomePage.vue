@@ -1,4 +1,12 @@
 <template>
+  <div class="scroll-down">
+    Scroll down for more
+    <div class="mt-1">
+      <svg viewBox="0 0 25 25" aria-label="click to scroll down" @click="scrollIntoView('about')">
+        <use href="~@/assets/icons/icons.svg#chevron-down"></use>
+      </svg>
+    </div>
+  </div>
   <main class="main-container">
     <BaseSection id="info" class="align-self-center">
       <h1 class="section__welcome">
@@ -7,7 +15,6 @@
         </svg>
       </h1>
     </BaseSection>
-
     <BaseSection id="about">
       <h2 class="text-tart-orange">About Me</h2>
       <div class="about__summary">
@@ -165,7 +172,7 @@ import BaseSection from '@/components/BaseSection';
 import BaseCard from '@/components/BaseCard';
 import SwipeCard from '@/components/SwipeCard';
 import { ref } from 'vue';
-import { openSite } from '@/helpers/utils';
+import { openSite, scrollIntoView } from '@/helpers/utils';
 import BaseButton from '@/components/BaseButton';
 
 const pills = ref(['Javascript (ES6+)', 'Typescript', 'Angular', 'Vue', 'Sass', 'NgRx', 'RxJs', 'Redux']);
@@ -187,6 +194,17 @@ const pills = ref(['Javascript (ES6+)', 'Typescript', 'Angular', 'Vue', 'Sass', 
   @include layout.width-columns(11);
   @include layout.width-columns(10, tablet);
   @include layout.grid-template(repeat(1, minmax(0, 1fr)), minmax(100vh, max-content), 20rem 0);
+}
+
+.scroll-down {
+  position: absolute;
+  top: 85vh;
+  width: 100%;
+  text-align: center;
+
+  svg {
+    @include mixins.scaleSvg(25px);
+  }
 }
 
 .about {

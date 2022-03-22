@@ -7,3 +7,8 @@ export const openSite = (siteUrl) => {
 export const downloadCv = () => {
   window.open('/RoicAlessandroCV.pdf', '_blank');
 };
+
+export const scrollIntoView = (id) => {
+  const element = document.getElementById(id);
+  element.scrollIntoView({ behavior: 'smooth' });
+};
