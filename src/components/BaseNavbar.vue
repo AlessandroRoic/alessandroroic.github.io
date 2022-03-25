@@ -29,23 +29,30 @@ import { reloadPage } from '@/helpers/utils';
 import { ScrollDirection } from '@/enums/scroll-direction.enum';
 import BaseLink from '@/components/BaseLink';
 import { breakpoints } from '@/helpers/breakpoints';
-import { computed, ref, watch } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import { useCScroll } from '@/composables/ScrollComposable';
 import { useUiStore } from '@/store/UIStore';
-
-const uiStore = useUiStore();
-const { toggleSidenav } = uiStore;
+import anime from 'animejs';
 
 const isMobile = breakpoints.smaller('mobile-l');
-
-const { isScrolled, direction, isScrolling } = useCScroll();
 const isLinkClicked = ref(false);
+const uiStore = useUiStore();
+const { toggleSidenav } = uiStore;
+const { isScrolled, direction, isScrolling } = useCScroll();
+
 const isPageScrolled = computed(() => !direction.value || isScrolled.value);
 const isClosed = computed(() => direction.value === ScrollDirection.DOWN);
 
-const closeNavbar = () => {
-  isLinkClicked.value = true;
-};
+onMounted(() => {
+  anime({
+    targets: '#navbar',
+    duration: 500,
+    easing: 'linear',
+    translateY: [-100, 0],
+    delay: 3000,
+    complete: (anim) => anim.set('#navbar', { style: '' }),
+  });
+});
 
 watch(isScrolling, (newValue, oldValue) => {
   if (isLinkClicked.value && !newValue && oldValue) {
@@ -53,6 +60,10 @@ watch(isScrolling, (newValue, oldValue) => {
     isLinkClicked.value = false;
   }
 });
+
+const closeNavbar = () => {
+  isLinkClicked.value = true;
+};
 </script>
 
 <style scoped lang="scss">
@@ -72,7 +83,7 @@ watch(isScrolling, (newValue, oldValue) => {
   justify-content: space-between;
   z-index: map-get(variables.$z-index, navbar);
   padding: 10px;
-  transition: transform 0.3s;
+  transition: transform 0.5s;
 
   &--scrolled {
     box-shadow: 1px 4px 14px 0 rgba(0, 0, 0, 0.69);

@@ -1,5 +1,5 @@
 <template>
-  <section :id="id">
+  <section :id="id" v-visible="onSectionVisible">
     <article class="section__wrapper">
       <div class="section__content">
         <slot></slot>
@@ -13,6 +13,9 @@ defineProps({
   id: {
     type: String,
     required: true,
+  },
+  onSectionVisible: {
+    type: Function,
   },
 });
 </script>

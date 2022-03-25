@@ -48,21 +48,6 @@
             </g>
         </g>
     </symbol>
-    <symbol id="welcome-card" fill="#eeeeee" viewBox="0 0 170 70" aria-labelledby="welcome-title">
-        <title id="welcome-title">Hello, This is Alessandro Roic Front End Developer</title>
-        <text x="0" y="15">
-            Hello,
-        </text>
-        <text x="0" y="40">
-            This is
-        </text>
-        <text fill="#F64E4D" text-decoration="underline" x="50" y="40">
-            Alessandro Roic
-        </text>
-        <text x="0" y="65">
-            Front End Developer
-        </text>
-    </symbol>
     <symbol id="cv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round">
         <title>Curriculum</title>

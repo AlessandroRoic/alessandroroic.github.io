@@ -1,21 +1,15 @@
 <template>
-  <div class="scroll-down">
-    Scroll down for more
-    <div class="mt-1">
-      <svg viewBox="0 0 25 25" aria-label="click to scroll down" @click="scrollIntoView('about')">
-        <use href="~@/assets/icons/icons.svg#chevron-down"></use>
-      </svg>
-    </div>
-  </div>
+  <button class="scroll-down" @click="scrollIntoView('about')">
+    Scroll down for more <br />
+    <svg viewBox="0 0 25 25" aria-label="click to scroll down">
+      <use href="~@/assets/icons/icons.svg#chevron-down"></use>
+    </svg>
+  </button>
   <main class="main-container">
     <BaseSection id="info" class="align-self-center">
-      <h1 class="section__welcome">
-        <svg viewBox="0 0 170 70" aria-label="welcome card">
-          <use href="~@/assets/icons/icons.svg#welcome-card"></use>
-        </svg>
-      </h1>
+      <h1 class="mb-0"><WelcomeCard /></h1>
     </BaseSection>
-    <BaseSection id="about">
+    <BaseSection id="about" :on-section-visible="test">
       <h2 class="text-tart-orange">About Me</h2>
       <div class="about__summary">
         <img class="about__side-photo" alt="profile" src="~@/assets/images/profile.webp" aria-label="profile picture" />
@@ -171,11 +165,24 @@
 import BaseSection from '@/components/BaseSection';
 import BaseCard from '@/components/BaseCard';
 import SwipeCard from '@/components/SwipeCard';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { openSite, scrollIntoView } from '@/helpers/utils';
 import BaseButton from '@/components/BaseButton';
+import { fade, svgLineFade, svgTextFade } from '@/animations/fade-animations';
+import anime from 'animejs';
+import WelcomeCard from '@/components/WelcomeCard';
 
 const pills = ref(['Javascript (ES6+)', 'Typescript', 'Angular', 'Vue', 'Sass', 'NgRx', 'RxJs', 'Redux']);
+
+onMounted(() => {
+  const timeline = anime.timeline();
+  timeline.add(fade('#info')).add(svgTextFade('#welcome-card .letter')).add(svgLineFade('#welcome-card line')).add(fade('.scroll-down'));
+});
+
+function test() {
+  console.log('asdasdas');
+}
+// const fadeSection = (id) => animateFade(`#${id}`);
 </script>
 
 <style scoped lang="scss">
@@ -197,10 +204,14 @@ const pills = ref(['Javascript (ES6+)', 'Typescript', 'Angular', 'Vue', 'Sass', 
 }
 
 .scroll-down {
+  color: variables.$cultured;
   position: absolute;
   top: 85vh;
-  width: 100%;
+  width: fit-content;
   text-align: center;
+  left: 50%;
+  transform: translate(-50%, 0);
+  cursor: pointer;
 
   svg {
     @include mixins.scaleSvg(25px);
@@ -226,12 +237,6 @@ const pills = ref(['Javascript (ES6+)', 'Typescript', 'Angular', 'Vue', 'Sass', 
 }
 
 .section {
-  &__welcome {
-    font-size: 0.84rem;
-    margin-bottom: 0;
-    font-weight: 500;
-  }
-
   &__pill {
     font-weight: bold;
     border-radius: variables.$card-border-radius;
