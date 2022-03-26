@@ -1,5 +1,5 @@
 <template>
-  <svg id="welcome-card" viewBox="0 0 170 66" aria-labelledby="welcome-title" ref="welcomeCard">
+  <svg id="welcome-card" viewBox="0 0 170 69" aria-labelledby="welcome-title" ref="welcomeCard">
     <title id="welcome-title">Hello, This is Alessandro Roic Front End Developer</title>
     <text x="0" y="15">Hello,</text>
     <text x="0" y="40">This is</text>

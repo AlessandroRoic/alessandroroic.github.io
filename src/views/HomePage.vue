@@ -9,7 +9,7 @@
     <BaseSection id="info" class="align-self-center">
       <h1 class="mb-0"><WelcomeCard /></h1>
     </BaseSection>
-    <BaseSection id="about" :on-section-visible="test">
+    <BaseSection id="about">
       <h2 class="text-tart-orange">About Me</h2>
       <div class="about__summary">
         <img class="about__side-photo" alt="profile" src="~@/assets/images/profile.webp" aria-label="profile picture" />
@@ -168,21 +168,21 @@ import SwipeCard from '@/components/SwipeCard';
 import { onMounted, ref } from 'vue';
 import { openSite, scrollIntoView } from '@/helpers/utils';
 import BaseButton from '@/components/BaseButton';
-import { fade, svgLineFade, svgTextFade } from '@/animations/fade-animations';
+import { animateFade, fade, svgLineFade, svgTextFade } from '@/animations/fade-animations';
 import anime from 'animejs';
 import WelcomeCard from '@/components/WelcomeCard';
+import { useVisible } from '@/composables/VisibleComposable';
 
 const pills = ref(['Javascript (ES6+)', 'Typescript', 'Angular', 'Vue', 'Sass', 'NgRx', 'RxJs', 'Redux']);
 
 onMounted(() => {
+  const sectionElements = document.getElementsByTagName('section');
+  const mappedElements = [...sectionElements].slice(1).map((element) => ({ elementRef: element }));
+  useVisible(mappedElements, null, fadeSection);
   const timeline = anime.timeline();
   timeline.add(fade('#info')).add(svgTextFade('#welcome-card .letter')).add(svgLineFade('#welcome-card line')).add(fade('.scroll-down'));
 });
-
-function test() {
-  console.log('asdasdas');
-}
-// const fadeSection = (id) => animateFade(`#${id}`);
+const fadeSection = (entry) => animateFade(`#${entry.target.id}`, 1500);
 </script>
 
 <style scoped lang="scss">
@@ -284,5 +284,12 @@ function test() {
 
 .contacts {
   margin-bottom: 20rem;
+}
+
+#about,
+#work,
+#contacts,
+#projects {
+  opacity: 0;
 }
 </style>

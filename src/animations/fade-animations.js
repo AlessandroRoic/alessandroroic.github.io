@@ -9,9 +9,9 @@ export const fade = (targets, duration = 700) => ({
 
 export const svgTextFade = (targets) => ({
   targets,
-  dy: ['1rem', 0],
+  scale: [0.3, 1],
   opacity: [0, 1],
-  duration: 700,
+  duration: 600,
   delay: (el, i) => 50 * i,
 });
 
@@ -23,5 +23,5 @@ export const svgLineFade = (targets) => ({
   easing: 'linear',
 });
 
-export const animateFade = (targets) => anime(fade(targets));
+export const animateFade = (targets, duration) => anime(fade(targets, duration));
 export const animateSvgTextFade = (targets) => anime(fade(targets));
