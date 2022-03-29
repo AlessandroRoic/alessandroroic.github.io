@@ -121,7 +121,7 @@
 
         <BaseCard :centerText="true">
           <template #logo>
-            <img src="~@/assets/images/curiosone.png" alt="e-quality logo" />
+            <img src="~@/assets/images/e-quality.png" alt="e-quality logo" />
           </template>
           <template #title><b>E-Quality</b></template>
           <template #content>Children video game on gender equality awareness</template>
@@ -132,7 +132,7 @@
 
         <BaseCard :centerText="true">
           <template #logo>
-            <img src="~@/assets/images/curiosone.png" alt="airbone assault logo" />
+            <img src="~@/assets/images/airborne-assault.png" alt="airbone assault logo" />
           </template>
           <template #title><b>Airborne Assault</b></template>
           <template #content>Video game build with libGDX for the university Java course</template>
