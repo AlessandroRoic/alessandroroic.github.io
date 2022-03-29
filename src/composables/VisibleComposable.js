@@ -18,7 +18,7 @@ export function useVisible(elements = [{ elementRef: null, functionRef: null }],
     : {
         root: null,
         rootMargin: '0px',
-        threshold: 0.5,
+        threshold: 0.2,
       };
   const observer = new IntersectionObserver(wrapperFunction, options);
   elements.forEach((element) => observer.observe(element.elementRef));
