@@ -10,13 +10,16 @@
         class="swipe__bullet"
       ></button>
     </div>
-    <slot :index="index"></slot>
+    <div ref="contentWrapper" class="swipe__content">
+      <slot :index="index"></slot>
+    </div>
   </div>
 </template>
 <script setup>
-import { ref } from 'vue';
+import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { SwipeDirection, useSwipe } from '@vueuse/core/index';
 import { breakpoints } from '@/helpers/breakpoints';
+import anime from 'animejs';
 
 const props = defineProps({
   cardNumber: {
@@ -27,11 +30,37 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  classToAnimate: {
+    type: String,
+  },
 });
 
 const index = ref(0);
+const previousIndex = ref(0);
 const swipeWrapper = ref(null);
+const contentWrapper = ref(null);
 const isMobile = breakpoints.smaller('mobile-l');
+const observer = new MutationObserver(() => {
+  const direction = index.value > previousIndex.value ? ['-100%', 0] : ['100%', 0];
+  anime({
+    targets: `.swipe__content .${props.classToAnimate}`,
+    ...(!isMobile.value ? { translateY: direction } : {}),
+    ...(isMobile.value ? { translateX: direction } : {}),
+    opacity: [0, 1],
+    easing: 'easeInOutQuad',
+    duration: 350,
+    direction: 'normal',
+  });
+});
+
+onMounted(() => {
+  observer.observe(contentWrapper.value, {
+    subtree: false,
+    childList: true,
+  });
+});
+
+onBeforeUnmount(() => observer.disconnect());
 
 useSwipe(swipeWrapper, {
   onSwipeEnd(event, direction) {
@@ -41,13 +70,15 @@ useSwipe(swipeWrapper, {
   },
 });
 
-function manageSwipe(event, direction = null) {
+watch(index, (newValue, oldValue) => (previousIndex.value = oldValue));
+
+const manageSwipe = (event, direction = null) => {
   if (event.deltaY < 0 || direction === SwipeDirection.RIGHT) {
     index.value = index.value - 1 >= 0 ? index.value - 1 : index.value;
   } else if (event.deltaY > 0 || direction === SwipeDirection.LEFT) {
     index.value = index.value + 1 < props.cardNumber ? index.value + 1 : index.value;
   }
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -56,6 +87,7 @@ function manageSwipe(event, direction = null) {
 
 .swipe {
   position: relative;
+  overflow: hidden;
 
   &__bullet {
     height: 12px;
@@ -97,6 +129,10 @@ function manageSwipe(event, direction = null) {
         transition: all 0.3s ease-in-out;
       }
     }
+  }
+
+  &__content {
+    height: 100%;
   }
 }
 </style>

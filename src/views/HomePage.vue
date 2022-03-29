@@ -14,10 +14,10 @@
       <div class="about__summary">
         <img class="about__side-photo" alt="profile" src="~@/assets/images/profile.webp" aria-label="profile picture" />
         <div class="m-auto">
-          Hi, I'm Alessandro and as you read before in the giant sign above I'm a Front End Developer. I have 2 years of experience building
-          modular and responsive website design. Right now my focus is on improving and developing my skills, but I'm always interested in
-          trying new stuff out and learning more. I have many side-projects and ideas to realize and hopefully they will see the light soon,
-          so stay tuned!
+          Hi, I'm Alessandro and as you read before in the giant sign above I'm a Front End Developer. I have 2+ years of experience
+          building modular and responsive website design. Right now my focus is on improving and developing my skills, but I'm always
+          interested in trying new stuff out and learning more. I have many side-projects and ideas to realize and hopefully they will see
+          the light soon, so stay tuned!
         </div>
       </div>
       <hr class="mx-2" />
@@ -32,21 +32,21 @@
       <h2 class="text-tart-orange">What's Next</h2>
       <div>
         I aspire to be a Game Developer and it has been a dream of mine since I've realized how games make people engaged and passionate,
-        and I always wanted to build something that would create that effect.
+        and I always wanted to make something that would create that effect.
       </div>
     </BaseSection>
 
     <BaseSection id="work">
       <h2 class="text-tart-orange">Work</h2>
-      <SwipeCard v-slot="{ index }" :card-number="3" style-class="work__cards">
+      <SwipeCard v-slot="{ index }" :card-number="3" style-class="work__cards" class-to-animate="card__content">
         <BaseCard v-if="index === 0">
-          <template #title><h2 class="text-tart-orange">Accenture</h2></template>
           <template #content>
+            <h2 class="text-tart-orange">Accenture</h2>
             <h3>Front End Developer</h3>
             <p class="mt-1">February 2021 - Currently</p>
             <ul>
-              <li>Designed and developed autonomously a web application for data visualization (Nexi)</li>
-              <li>Optimized and improved a ui-kit embedded in a service platform (Italian Ministry of Economy)</li>
+              <li>Designed and developed a data visualization web application (Nexi)</li>
+              <li>Optimized and improved a UI-kit embedded in a service platform (Italian Ministry of Economy)</li>
               <li>Build services and components for a customer service platform (Poste Italiane)</li>
               <li>
                 <span
@@ -59,32 +59,29 @@
           </template>
         </BaseCard>
         <BaseCard v-if="index === 1">
-          <template #title><h2 class="text-tart-orange">Jpanik</h2></template>
           <template #content>
+            <h2 class="text-tart-orange">Jpanik</h2>
             <h3>Full Stack Developer</h3>
             <p class="mt-1">October 2019 - February 2021</p>
             <ul>
               <li>
                 <span
-                  >Developed Back End services with Spring framework suite and Front End components with Angular, for a web enterprise
-                  platform designed for clinical-hospital management</span
+                  >Developed a web enterprise platform for hospital management, using the Spring framework for back-end services and Angular
+                  for the front-end components</span
                 >
               </li>
               <li>
-                <span
-                  >Integrated an applet into the platform that processes and displays an interactive graph using the elaborated data through
-                  the Chart.js library.</span
-                >
+                <span>Integrated an applet into an interactive graph display platform using the Chart.js library</span>
               </li>
               <li>Technologies used: Angular/AngularJS, Java/Java EE, Spring, REST API, PostgreSQL, MongoDB</li>
             </ul>
           </template>
         </BaseCard>
         <BaseCard v-if="index === 2">
-          <template #title><h2 class="text-tart-orange">University</h2></template>
           <template #content>
+            <h2 class="text-tart-orange">University</h2>
             <h3>Computer Science Bachelor</h3>
-            <h4>Sapienza University of Rome</h4>
+            <h4>University of Rome – La Sapienza</h4>
             <p class="mt-1">September 2016 – April 2020</p>
             <ul>
               <li>
@@ -116,7 +113,7 @@
             </svg>
           </template>
           <template #title><b>Personal Website</b></template>
-          <template #content>You can check this site source code on github</template>
+          <template #content>Check this site source code on github for more details</template>
           <template #link>
             <BaseButton @click="openSite('github.com/AlessandroRoic/alessandroroic.github.io')">Check it</BaseButton>
           </template>
@@ -127,7 +124,7 @@
             <img src="~@/assets/images/curiosone.png" alt="e-quality logo" />
           </template>
           <template #title><b>E-Quality</b></template>
-          <template #content>Gamification built for kids on gender equality</template>
+          <template #content>Children video game on gender equality awareness</template>
           <template #link>
             <BaseButton @click="openSite('github.com/AlessandroRoic/E-Quality')">Check it</BaseButton>
           </template>
@@ -138,7 +135,7 @@
             <img src="~@/assets/images/curiosone.png" alt="airbone assault logo" />
           </template>
           <template #title><b>Airborne Assault</b></template>
-          <template #content>Video game build with libGDX</template>
+          <template #content>Video game build with libGDX for the university Java course</template>
           <template #link>
             <BaseButton @click="openSite('github.com/AlessandroRoic/AirborneAssault')">Check it</BaseButton>
           </template>
@@ -182,7 +179,8 @@ onMounted(() => {
   const timeline = anime.timeline();
   timeline.add(fade('#info')).add(svgTextFade('#welcome-card .letter')).add(svgLineFade('#welcome-card line')).add(fade('.scroll-down'));
 });
-const fadeSection = (entry) => animateFade(`#${entry.target.id}`, 1500);
+
+const fadeSection = (entry) => animateFade(`#${entry.target.id}`, 1250);
 </script>
 
 <style scoped lang="scss">
@@ -249,6 +247,13 @@ const fadeSection = (entry) => animateFade(`#${entry.target.id}`, 1500);
 
     &-wrapper {
       @include layout.row();
+    }
+
+    &:hover {
+      cursor: pointer;
+      filter: drop-shadow(5px 5px 10px variables.$eerie-black-2);
+      transform: scale(1.2);
+      transition: transform 0.3s ease-in-out;
     }
   }
 }
