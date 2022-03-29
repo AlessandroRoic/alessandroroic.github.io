@@ -11,7 +11,7 @@
       <use href="~@/assets/icons/icons.svg#site-logo"></use>
     </svg>
 
-    <svg v-if="isMobile" @click="toggleSidenav()" class="navbar__menu" aria-label="menu button">
+    <svg v-if="isMobile" @click="toggleSidenav" class="navbar__menu" aria-label="menu button">
       <use href="~@/assets/icons/icons.svg#menu-right"></use>
     </svg>
 
