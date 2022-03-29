@@ -4,9 +4,9 @@ import { ref } from 'vue';
 export const useUiStore = defineStore('ui', () => {
   const sideNavOpened = ref(false);
 
-  function toggleSidenav() {
-    this.sideNavOpened = !this.sideNavOpened;
-  }
+  const toggleSidenav = () => {
+    sideNavOpened.value = !sideNavOpened.value;
+  };
 
   return {
     sideNavOpened,
