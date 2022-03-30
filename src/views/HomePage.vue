@@ -180,7 +180,7 @@ onMounted(() => {
   timeline.add(fade('#info')).add(svgTextFade('#welcome-card .letter')).add(svgLineFade('#welcome-card line')).add(fade('.scroll-down'));
 });
 
-const fadeSection = (entry) => animateFade(`#${entry.target.id}`, 1250);
+const fadeSection = (entry) => animateFade(`#${entry.target.id}`, 1000);
 </script>
 
 <style scoped lang="scss">
