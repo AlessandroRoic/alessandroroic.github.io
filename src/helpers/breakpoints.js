@@ -1,4 +1,4 @@
-import { useBreakpoints } from '@vueuse/core/index';
+import { useBreakpoints } from '@vueuse/core';
 
 export const breakpoints = useBreakpoints({
   'mobile-s': 321,

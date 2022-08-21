@@ -7,7 +7,9 @@
   </button>
   <main class="main-container">
     <BaseSection id="info" class="align-self-center">
-      <h1 class="mb-0"><WelcomeCard /></h1>
+      <h1 class="mb-0">
+        <WelcomeCard />
+      </h1>
     </BaseSection>
     <BaseSection id="about">
       <h2 class="text-tart-orange">About Me</h2>
@@ -38,7 +40,7 @@
 
     <BaseSection id="work">
       <h2 class="text-tart-orange">Work</h2>
-      <SwipeCard v-slot="{ index }" :card-number="3" style-class="work__cards" class-to-animate="card__content">
+      <SwipeCard v-slot="{ index }" :card-number="4" style-class="work__cards" class-to-animate="card__content">
         <BaseCard v-if="index === 0">
           <template #content>
             <h2 class="text-tart-orange">Accenture</h2>
@@ -47,14 +49,14 @@
             <ul>
               <li>Designed and developed a data visualization web application (Nexi)</li>
               <li>Optimized and improved a UI-kit embedded in a service platform (Italian Ministry of Economy)</li>
-              <li>Build services and components for a customer service platform (Poste Italiane)</li>
+              <li>Build services and components for a bank on-boarding web application in a international team (Unicredit)</li>
               <li>
                 <span
-                  >Collaborated in a Scrum team, following closely and participated actively in daily activities with the engineers,
+                  >Collaborated in a Scrum teams, following closely and participated actively in daily activities with the engineers,
                   designers and clients.</span
                 >
               </li>
-              <li>Technologies used: Angular, NgRx, RxJs, Javascript (ES6+), SCSS</li>
+              <li>Technologies used: React, Angular, NgRx, RxJs, Javascript (ES6+), SCSS</li>
             </ul>
           </template>
         </BaseCard>
@@ -100,6 +102,16 @@
             </ul>
           </template>
         </BaseCard>
+        <BaseCard v-if="index === 3">
+          <template #content>
+            <h2 class="text-tart-orange">Certifications</h2>
+            <ul>
+              <li>
+                <b>AWS Certified Developer - Associate (dva-c01)</b>
+              </li>
+            </ul>
+          </template>
+        </BaseCard>
       </SwipeCard>
     </BaseSection>
 
@@ -116,6 +128,17 @@
           <template #content>Check this site source code on github for more details</template>
           <template #link>
             <BaseButton @click="openSite('github.com/AlessandroRoic/alessandroroic.github.io')">Check it</BaseButton>
+          </template>
+        </BaseCard>
+
+        <BaseCard :centerText="true">
+          <template #logo>
+            <img src="~@/assets/images/e-quality.png" alt="" />
+          </template>
+          <template #title><b>CamoNotifications</b></template>
+          <template #content>React notifications library that disguises itself in your application 🥷😶‍🌫️</template>
+          <template #link>
+            <BaseButton @click="openSite('github.com/AlessandroRoic/CamoNotifications')">Check it</BaseButton>
           </template>
         </BaseCard>
 
@@ -140,14 +163,20 @@
             <BaseButton @click="openSite('github.com/AlessandroRoic/AirborneAssault')">Check it</BaseButton>
           </template>
         </BaseCard>
+
+        <BaseCard :center-text="true" style="grid-column: span 2; display: grid; place-items: center">
+          <template #content>
+            <h3>More to come!</h3>
+          </template>
+        </BaseCard>
       </div>
     </BaseSection>
 
     <BaseSection id="contacts" class="contacts">
       <h2 class="text-tart-orange">Get in touch</h2>
       <div class="mt-1 mb-1">
-        I'm currenty looking for opportunities in Toronto, if you have any and you're interested in my curriculum and want to contact me,
-        please do!
+        I'm currenty looking for opportunities in Canada, if you have any and you're interested in my resume and want to contact me, please
+        do!
       </div>
       <div class="text-center">
         <BaseButton>
@@ -170,7 +199,23 @@ import anime from 'animejs';
 import WelcomeCard from '@/components/WelcomeCard';
 import { useVisible } from '@/composables/VisibleComposable';
 
-const pills = ref(['Javascript (ES6+)', 'Typescript', 'Angular', 'Vue', 'Sass', 'NgRx', 'RxJs', 'Redux']);
+const pills = ref([
+  'Javascript (ES6+)',
+  'Typescript',
+  'React',
+  'Angular',
+  'Vue',
+  'Sass',
+  'NgRx',
+  'RxJs',
+  'Redux',
+  'Jasmine',
+  'Karma',
+  'Java (EE)',
+  'Spring',
+  'PostgreSQL',
+  'MongoDB',
+]);
 
 onMounted(() => {
   const sectionElements = document.getElementsByTagName('section');

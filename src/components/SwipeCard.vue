@@ -17,7 +17,7 @@
 </template>
 <script setup>
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
-import { SwipeDirection, useSwipe } from '@vueuse/core/index';
+import { SwipeDirection, useSwipe } from '@vueuse/core';
 import { breakpoints } from '@/helpers/breakpoints';
 import anime from 'animejs';
 
