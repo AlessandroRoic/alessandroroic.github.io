@@ -133,7 +133,7 @@
 
         <BaseCard :centerText="true">
           <template #logo>
-            <img src="~@/assets/images/e-quality.png" alt="" />
+            <img src="~@/assets/images/camo-notifications.webp" alt="" />
           </template>
           <template #title><b>CamoNotifications</b></template>
           <template #content>React notifications library that disguises itself in your application 🥷😶‍🌫️</template>
