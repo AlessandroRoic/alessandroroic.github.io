@@ -16,10 +16,10 @@
       <div class="about__summary">
         <img class="about__side-photo" alt="profile" src="~@/assets/images/profile.webp" aria-label="profile picture" />
         <div class="m-auto">
-          Hi, I'm Alessandro and as you read before in the giant sign above I'm a Front End Developer. I have 2+ years of experience
-          building modular and responsive website design. Right now my focus is on improving and developing my skills, but I'm always
-          interested in trying new stuff out and learning more. I have many side-projects and ideas to realize and hopefully they will see
-          the light soon, so stay tuned!
+          Hi, I'm Alessandro and as you read before in the huge card above I'm a Front End Developer. I have 2+ years of experience building
+          modular and responsive website design. Right now my focus is on improving and developing my skills, but I'm always interested in
+          trying new stuff out and learning more. I have many side-projects and ideas to realize and hopefully they will see the light soon,
+          so stay tuned!
         </div>
       </div>
       <hr class="mx-2" />
@@ -51,10 +51,10 @@
               <li>Optimized and improved a UI-kit embedded in a service platform (Italian Ministry of Economy)</li>
               <li>Build services and components for a bank on-boarding web application in a international team (Unicredit)</li>
               <li>
-                <span
-                  >Collaborated in a Scrum teams, following closely and participated actively in daily activities with the engineers,
-                  designers and clients.</span
-                >
+                <span>
+                  Collaborated in a Scrum teams, following closely and participated actively in daily activities with the engineers,
+                  designers and clients.
+                </span>
               </li>
               <li>Technologies used: React, Angular, NgRx, RxJs, Javascript (ES6+), SCSS</li>
             </ul>
@@ -164,7 +164,7 @@
           </template>
         </BaseCard>
 
-        <BaseCard :center-text="true" style="grid-column: span 2; display: grid; place-items: center">
+        <BaseCard :center-text="true" class="more-to-come">
           <template #content>
             <h3>More to come!</h3>
           </template>
@@ -175,8 +175,7 @@
     <BaseSection id="contacts" class="contacts">
       <h2 class="text-tart-orange">Get in touch</h2>
       <div class="mt-1 mb-1">
-        I'm currenty looking for opportunities in Canada, if you have any and you're interested in my resume and want to contact me, please
-        do!
+        I'm looking for opportunities in Canada, so if you're interested in my resume and want to contact me, please do!
       </div>
       <div class="text-center">
         <BaseButton>
@@ -341,5 +340,13 @@ const fadeSection = (entry) => animateFade(`#${entry.target.id}`, 1000);
 #contacts,
 #projects {
   opacity: 0;
+}
+
+.more-to-come {
+  @include breakpoint.show-for(desktop) {
+    grid-column: span 2;
+    display: grid;
+    place-items: center;
+  }
 }
 </style>
