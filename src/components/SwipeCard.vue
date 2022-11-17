@@ -88,6 +88,8 @@ const manageSwipe = (event, direction = null) => {
 .swipe {
   position: relative;
   overflow: hidden;
+  border-radius: variables.$card-border-radius;
+  box-shadow: variables.$black-shadow;
 
   &__bullet {
     height: 12px;
@@ -99,7 +101,7 @@ const manageSwipe = (event, direction = null) => {
     &-wrapper {
       position: absolute;
       width: 100%;
-      top: 10px;
+      top: 15px;
       display: grid;
       grid-auto-flow: column;
       gap: 0 10px;
@@ -110,7 +112,7 @@ const manageSwipe = (event, direction = null) => {
         width: auto;
         height: 100%;
         top: 0;
-        right: 10px;
+        right: 15px;
         align-content: center;
         gap: 10px 0;
         grid-auto-flow: initial;

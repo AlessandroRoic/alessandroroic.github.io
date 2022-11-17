@@ -1,5 +1,5 @@
 <template>
-  <a v-bind:href="href" class="base-link" @click="$emit('click')">
+  <a :href="href" :class="`base-link ${showUnderline ? 'base-link--underline' : ''}`" @click="$emit('click')">
     <slot></slot>
   </a>
 </template>
@@ -9,6 +9,9 @@ defineProps({
   href: {
     type: String,
     required: true,
+  },
+  showUnderline: {
+    type: Boolean,
   },
 });
 </script>
@@ -25,6 +28,10 @@ defineProps({
   &:hover {
     color: variables.$tart-orange;
     text-decoration: underline variables.$cultured;
+  }
+
+  &--underline {
+    text-decoration: underline variables.$tart-orange;
   }
 }
 </style>

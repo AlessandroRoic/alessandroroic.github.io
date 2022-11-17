@@ -16,10 +16,13 @@
       <div class="about__summary">
         <img class="about__side-photo" alt="profile" src="~@/assets/images/profile.webp" aria-label="profile picture" />
         <div class="m-auto">
-          Hi, I'm Alessandro and as you read before in the huge card above I'm a Front End Developer. I have 2+ years of experience building
+          Hi, I'm Alessandro and as you read before in the huge card above I'm a Front End Developer. I have 3 years of experience building
           modular and responsive website design. Right now my focus is on improving and developing my skills, but I'm always interested in
           trying new stuff out and learning more. I have many side-projects and ideas to realize and hopefully they will see the light soon,
           so stay tuned!
+          <div class="mt-2 text-center">
+            <BaseButton @click="downloadCv()" aria-label="cv">Interested? Get my CV!</BaseButton>
+          </div>
         </div>
       </div>
       <hr class="mx-2" />
@@ -39,28 +42,38 @@
     </BaseSection>
 
     <BaseSection id="work">
-      <h2 class="text-tart-orange">Work</h2>
+      <h2 class="text-tart-orange">Work & Education</h2>
       <SwipeCard v-slot="{ index }" :card-number="4" style-class="work__cards" class-to-animate="card__content">
-        <BaseCard v-if="index === 0">
+        <BaseCard v-if="index === 0" :is-swipe="true">
           <template #content>
             <h2 class="text-tart-orange">Accenture</h2>
             <h3>Front End Developer</h3>
             <p class="mt-1">February 2021 - Currently</p>
             <ul>
-              <li>Designed and developed a data visualization web application (Nexi)</li>
-              <li>Optimized and improved a UI-kit embedded in a service platform (Italian Ministry of Economy)</li>
-              <li>Build services and components for a bank on-boarding web application in a international team (Unicredit)</li>
               <li>
-                <span>
-                  Collaborated in a Scrum teams, following closely and participated actively in daily activities with the engineers,
-                  designers and clients.
-                </span>
+                <span
+                  >Led a development team of 4 with the task of improving the accessibility of a website, achieving a score of 93 on Google
+                  Lighthouse</span
+                >
               </li>
-              <li>Technologies used: React, Angular, NgRx, RxJs, Javascript (ES6+), SCSS</li>
+              <li>Developed micro front ends in React 17 for a multinational banking application</li>
+              <li>
+                <span
+                  >Collaborated in a Scrum team of 20, following closely and participated actively in daily meetings with the engineers,
+                  designers, and clients</span
+                >
+              </li>
+              <li>
+                <span
+                  >Self-managed, implemented and deployed a data visualization web app with Angular 13 for a bank internal management
+                  tool</span
+                >
+              </li>
+              <li>Technologies used: React, Angular, NgRx, RxJs, Javascript (ES6+), SCSS, CSS, Karma, Jasmine, Jest</li>
             </ul>
           </template>
         </BaseCard>
-        <BaseCard v-if="index === 1">
+        <BaseCard v-if="index === 1" :is-swipe="true">
           <template #content>
             <h2 class="text-tart-orange">Jpanik</h2>
             <h3>Full Stack Developer</h3>
@@ -79,7 +92,7 @@
             </ul>
           </template>
         </BaseCard>
-        <BaseCard v-if="index === 2">
+        <BaseCard v-if="index === 2" :is-swipe="true">
           <template #content>
             <h2 class="text-tart-orange">University</h2>
             <h3>Computer Science Bachelor</h3>
@@ -88,8 +101,8 @@
             <ul>
               <li>
                 <span class="text-tart-orange"><b>E-Quality</b></span
-                >: gamified video game built for kids to raise a wareness on gender equality in collaboration with the Italian Regional
-                Councilor for Equal Opportunities
+                >: video game aimed at raising gender-equality awareness, developed in collaboration with the Italian Regional Council for
+                Equal Opportunities
               </li>
               <li>
                 <span class="text-tart-orange"><b>Curiosone Bot</b></span
@@ -102,12 +115,14 @@
             </ul>
           </template>
         </BaseCard>
-        <BaseCard v-if="index === 3">
+        <BaseCard v-if="index === 3" :is-swipe="true">
           <template #content>
             <h2 class="text-tart-orange">Certifications</h2>
             <ul>
               <li>
-                <b>AWS Certified Developer - Associate (dva-c01)</b>
+                <BaseLink href="https://credly.com/badges/b233c696-03a7-493f-96d7-ba7431c0137c/linked_in?t=rh09bv" :show-underline="true">
+                  <b>AWS Certified Developer - Associate</b>
+                </BaseLink>
               </li>
             </ul>
           </template>
@@ -191,12 +206,14 @@ import BaseSection from '@/components/BaseSection';
 import BaseCard from '@/components/BaseCard';
 import SwipeCard from '@/components/SwipeCard';
 import { onMounted, ref } from 'vue';
-import { openSite, scrollIntoView } from '@/helpers/utils';
+import { downloadCv, openSite, scrollIntoView } from '@/helpers/utils';
+
 import BaseButton from '@/components/BaseButton';
 import { animateFade, fade, svgLineFade, svgTextFade } from '@/animations/fade-animations';
 import anime from 'animejs';
 import WelcomeCard from '@/components/WelcomeCard';
 import { useVisible } from '@/composables/VisibleComposable';
+import BaseLink from '@/components/BaseLink';
 
 const pills = ref([
   'Javascript (ES6+)',
@@ -314,19 +331,19 @@ const fadeSection = (entry) => animateFade(`#${entry.target.id}`, 1000);
 .work {
   &__cards {
     @include breakpoint.show-for(mobile-s) {
-      height: 1050px;
+      height: 1100px;
     }
     @include breakpoint.show-for(mobile-m) {
-      height: 850px;
+      height: 900px;
     }
     @include breakpoint.show-for(mobile-l) {
-      height: 740px;
+      height: 780px;
     }
     @include breakpoint.show-for(tablet) {
-      height: 500px;
+      height: 550px;
     }
     @include breakpoint.show-for-range(desktop, desktop-l) {
-      height: 400px;
+      height: 450px;
     }
   }
 }

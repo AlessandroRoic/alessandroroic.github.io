@@ -1,5 +1,5 @@
 <template>
-  <div class="card__wrapper">
+  <div :class="`card__wrapper ${isSwipe ? 'card__wrapper--swipe' : ''}`">
     <div v-if="$slots.logo" class="card__logo">
       <slot name="logo"></slot>
     </div>
@@ -16,7 +16,14 @@
 </template>
 
 <script setup>
-defineProps(['centerText']);
+defineProps({
+  centerText: {
+    type: Boolean,
+  },
+  isSwipe: {
+    type: Boolean,
+  },
+});
 </script>
 
 <style scoped lang="scss">
@@ -32,6 +39,11 @@ defineProps(['centerText']);
     padding: 20px;
     border: 2px solid variables.$jet;
     box-shadow: variables.$black-shadow;
+
+    &--swipe {
+      border: none;
+      box-shadow: none;
+    }
   }
 
   &__logo {

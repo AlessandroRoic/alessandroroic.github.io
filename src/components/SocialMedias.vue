@@ -1,5 +1,5 @@
 <template>
-  <div v-bind:class="isFooter ? 'social-medias--footer' : 'social-medias'">
+  <div :class="isFooter ? 'social-medias--footer' : 'social-medias'">
     <button @click="openSite('github.com/AlessandroRoic')" aria-label="github">
       <svg class="social-medias__icon">
         <use href="~@/assets/icons/icons.svg#github"></use>
@@ -28,6 +28,7 @@
 
 <script setup>
 import { downloadCv, openSite } from '@/helpers/utils';
+
 defineProps(['isFooter']);
 </script>
 
