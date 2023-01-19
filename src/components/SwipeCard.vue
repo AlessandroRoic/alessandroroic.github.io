@@ -39,7 +39,7 @@ const index = ref(0);
 const previousIndex = ref(0);
 const swipeWrapper = ref(null);
 const contentWrapper = ref(null);
-const isMobile = breakpoints.smaller('mobile-l');
+const isMobile = breakpoints.smaller('tablet');
 const observer = new MutationObserver(() => {
   const direction = index.value > previousIndex.value ? ['-100%', 0] : ['100%', 0];
   anime({

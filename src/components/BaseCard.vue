@@ -29,6 +29,7 @@ defineProps({
 <style scoped lang="scss">
 @use '../styles/variables';
 @use '../styles/lib/layout';
+@use '../styles/lib/breakpoint';
 
 .card {
   &__wrapper {
@@ -43,6 +44,9 @@ defineProps({
     &--swipe {
       border: none;
       box-shadow: none;
+      @include breakpoint.show-for-range(mobile-s, tablet) {
+        padding-top: 35px;
+      }
     }
   }
 

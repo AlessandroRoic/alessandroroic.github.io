@@ -30,7 +30,7 @@ import { ScrollDirection } from '@/enums/scroll-direction.enum';
 import BaseLink from '@/components/BaseLink';
 import { breakpoints } from '@/helpers/breakpoints';
 import { computed, onMounted, ref, watch } from 'vue';
-import { useCScroll } from '@/composables/ScrollComposable';
+import useCScroll from '@/composables/ScrollComposable';
 import { useUiStore } from '@/store/UIStore';
 import anime from 'animejs';
 

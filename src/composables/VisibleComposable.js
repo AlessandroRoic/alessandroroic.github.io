@@ -1,18 +1,6 @@
 import { onBeforeUnmount } from 'vue';
 
-export function useVisible(elements = [{ elementRef: null, functionRef: null }], observerOptions, commonFunction) {
-  const wrapperFunction = (entries, observer) => {
-    entries.forEach((entry) => {
-      const elementIndex = elements.findIndex((element) => element.elementRef.id === entry.target.id);
-      if (!entry || !entry.isIntersecting || elements[elementIndex].intersectOnce) return;
-      elements[elementIndex].intersectOnce = true;
-      if (commonFunction) {
-        checkFunction(commonFunction, entry, observer);
-      } else {
-        checkFunction(elements[elementIndex].functionRef, entry, observer);
-      }
-    });
-  };
+export default function useVisible(elements, callback, observerOptions) {
   const options = observerOptions
     ? observerOptions
     : {
@@ -21,21 +9,27 @@ export function useVisible(elements = [{ elementRef: null, functionRef: null }],
         threshold: 0,
       };
   const observer = new IntersectionObserver(wrapperFunction, options);
-  elements.forEach((element) => observer.observe(element.elementRef));
+  elements.forEach((element) => observer.observe(element));
+
+  function wrapperFunction(entries, intersectionObserver) {
+    entries.forEach((entry) => {
+      if (!entry || !entry.isIntersecting) return;
+      checkFunction(callback, entry, intersectionObserver);
+      intersectionObserver.unobserve(entry.target);
+    });
+  }
+
+  function checkFunction(func, entry, observer) {
+    if (func.length === 1) {
+      func(entry);
+      return;
+    }
+    if (func.length === 2) {
+      func(entry, observer);
+    }
+  }
 
   onBeforeUnmount(() => {
     observer.disconnect();
   });
-
-  const checkFunction = (func, entries, observer) => {
-    if (func.length === 1) {
-      func(entries);
-      return;
-    }
-    if (func.length === 2) {
-      func(entries, observer);
-      return;
-    }
-    func();
-  };
 }

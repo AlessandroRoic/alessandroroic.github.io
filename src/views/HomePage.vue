@@ -11,7 +11,7 @@
         <WelcomeCard />
       </h1>
     </BaseSection>
-    <BaseSection id="about">
+    <BaseSection id="about" data-observable>
       <h2 class="text-tart-orange">About Me</h2>
       <div class="about__summary">
         <img class="about__side-photo" alt="profile" src="~@/assets/images/profile.webp" aria-label="profile picture" />
@@ -41,7 +41,7 @@
       </div>
     </BaseSection>
 
-    <BaseSection id="work">
+    <BaseSection id="work" data-observable>
       <h2 class="text-tart-orange">Work & Education</h2>
       <SwipeCard v-slot="{ index }" :card-number="4" style-class="work__cards" class-to-animate="card__content">
         <BaseCard v-if="index === 0" :is-swipe="true">
@@ -52,22 +52,24 @@
             <ul>
               <li>
                 <span
-                  >Led a development team of 4 with the task of improving the accessibility of a website, achieving a score of 93 on Google
-                  Lighthouse</span
-                >
-              </li>
-              <li>Developed micro front ends in React 17 for a multinational banking application</li>
-              <li>
-                <span
-                  >Collaborated in a Scrum team of 20, following closely and participated actively in daily meetings with the engineers,
-                  designers, and clients</span
+                  >Led a team of 4 software developers to enhance the accessibility of a government website, following web standards to
+                  achieve a score of 93/100 on Google Lighthouse</span
                 >
               </li>
               <li>
                 <span
-                  >Self-managed, implemented and deployed a data visualization web app with Angular 13 for a bank internal management
-                  tool</span
+                  >Developed 10+ repositories for an international banking website, using React to build modular and reactive micro front
+                  ends</span
                 >
+              </li>
+              <li>
+                <span
+                  >Managed and deployed a data management app with Angular for a bank's internal tool, providing operators with a simple way
+                  to view client data.</span
+                >
+              </li>
+              <li>
+                <span>Tested components using Karma & Jasmine for an online banking website, obtaining 100% code coverage.</span>
               </li>
               <li>Technologies used: React, Angular, NgRx, RxJs, Javascript (ES6+), SCSS, CSS, Karma, Jasmine, Jest</li>
             </ul>
@@ -81,12 +83,21 @@
             <ul>
               <li>
                 <span
-                  >Developed a web enterprise platform for hospital management, using the Spring framework for back-end services and Angular
-                  for the front-end components</span
+                  >Implemented pages for a hospital management web app, handling heavy workloads during the pandemic by prioritizing tasks,
+                  resulting in zero service disruption.</span
                 >
               </li>
               <li>
-                <span>Integrated an applet into an interactive graph display platform using the Chart.js library</span>
+                <span
+                  >Integrated an interactive graph using the library Chart.js, providing a helpful visual reference to healthcare
+                  professionals.</span
+                >
+              </li>
+              <li>
+                <span>Developed RESTful APIs using Spring Boot to create scalable and performant services.</span>
+              </li>
+              <li>
+                <span>Designed and implemented efficient data storage and retrieval solutions using PostgreSQL and MongoDB databases.</span>
               </li>
               <li>Technologies used: Angular/AngularJS, Java/Java EE, Spring, REST API, PostgreSQL, MongoDB</li>
             </ul>
@@ -130,7 +141,7 @@
       </SwipeCard>
     </BaseSection>
 
-    <BaseSection id="projects">
+    <BaseSection id="projects" data-observable>
       <h2 class="text-tart-orange">Projects</h2>
       <div class="projects__cards">
         <BaseCard :centerText="true">
@@ -187,7 +198,7 @@
       </div>
     </BaseSection>
 
-    <BaseSection id="contacts" class="contacts">
+    <BaseSection id="contacts" class="contacts" data-observable>
       <h2 class="text-tart-orange">Get in touch</h2>
       <div class="mt-1 mb-1">
         I'm looking for opportunities in Canada, so if you're interested in my resume and want to contact me, please do!
@@ -212,7 +223,7 @@ import BaseButton from '@/components/BaseButton';
 import { animateFade, fade, svgLineFade, svgTextFade } from '@/animations/fade-animations';
 import anime from 'animejs';
 import WelcomeCard from '@/components/WelcomeCard';
-import { useVisible } from '@/composables/VisibleComposable';
+import useVisible from '@/composables/VisibleComposable';
 import BaseLink from '@/components/BaseLink';
 
 const pills = ref([
@@ -234,9 +245,7 @@ const pills = ref([
 ]);
 
 onMounted(() => {
-  const sectionElements = document.getElementsByTagName('section');
-  const mappedElements = [...sectionElements].slice(1).map((element) => ({ elementRef: element }));
-  useVisible(mappedElements, null, fadeSection);
+  useVisible(document.querySelectorAll('[data-observable]'), fadeSection);
   const timeline = anime.timeline();
   timeline.add(fade('#info')).add(svgTextFade('#welcome-card .letter')).add(svgLineFade('#welcome-card line')).add(fade('.scroll-down'));
 });
@@ -331,19 +340,19 @@ const fadeSection = (entry) => animateFade(`#${entry.target.id}`, 1000);
 .work {
   &__cards {
     @include breakpoint.show-for(mobile-s) {
-      height: 1100px;
+      height: 1250px;
     }
     @include breakpoint.show-for(mobile-m) {
-      height: 900px;
+      height: 1050px;
     }
     @include breakpoint.show-for(mobile-l) {
-      height: 780px;
+      height: 880px;
     }
     @include breakpoint.show-for(tablet) {
       height: 550px;
     }
     @include breakpoint.show-for-range(desktop, desktop-l) {
-      height: 450px;
+      height: 470px;
     }
   }
 }
