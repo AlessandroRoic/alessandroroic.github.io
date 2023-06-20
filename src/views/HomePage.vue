@@ -205,7 +205,7 @@
       </div>
       <div class="text-center">
         <BaseButton>
-          <a class="reset-link" href="mailto:alessandro.roic@gmail.com" target="_blank" aria-label="email">Mail me</a>
+          <a class="reset-link" href="mailto:roic.alessandro@gmail.com" target="_blank" aria-label="email">Mail me</a>
         </BaseButton>
       </div>
     </BaseSection>
