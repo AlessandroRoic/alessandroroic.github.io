@@ -16,7 +16,7 @@
       <div class="about__summary">
         <img class="about__side-photo" alt="profile" src="~@/assets/images/profile.webp" aria-label="profile picture" />
         <div class="m-auto">
-          Hi, I'm Alessandro and as you read before in the huge card above I'm a Front End Developer. I have 3 years of experience building
+          Hi, I'm Alessandro and as you read before in the huge card above I'm a Front End Developer. I have 4+ years of experience building
           modular and responsive website design. Right now my focus is on improving and developing my skills, but I'm always interested in
           trying new stuff out and learning more. I have many side-projects and ideas to realize and hopefully they will see the light soon,
           so stay tuned!
@@ -46,9 +46,37 @@
       <SwipeCard v-slot="{ index }" :card-number="4" style-class="work__cards" class-to-animate="card__content">
         <BaseCard v-if="index === 0" :is-swipe="true">
           <template #content>
+            <h2 class="text-tart-orange">IBM - Turbonomic</h2>
+            <h3>Front End Developer</h3>
+            <p class="mt-1">May 2023 - Present</p>
+            <ul>
+              <li>
+                <span>Developed features for a SaaS application used for application resource management.</span>
+              </li>
+              <li>
+                <span
+                  >Successfully leveraged React to modernize the application architecture from AngularJS, improving scalability and
+                  maintainability for future growth</span
+                >
+              </li>
+              <li>
+                <span>
+                  Led the development of the user permission service, ensuring secure and granular access control for the application.
+                </span>
+              </li>
+              <li>
+                <span>
+                  Mentored junior developers throughout the process, fostering a collaborative environment and knowledge transfer.
+                </span>
+              </li>
+            </ul>
+          </template>
+        </BaseCard>
+        <BaseCard v-if="index === 1" :is-swipe="true">
+          <template #content>
             <h2 class="text-tart-orange">Accenture</h2>
             <h3>Front End Developer</h3>
-            <p class="mt-1">February 2021 - Currently</p>
+            <p class="mt-1">February 2021 - January 2023</p>
             <ul>
               <li>
                 <span
@@ -75,7 +103,7 @@
             </ul>
           </template>
         </BaseCard>
-        <BaseCard v-if="index === 1" :is-swipe="true">
+        <BaseCard v-if="index === 2" :is-swipe="true">
           <template #content>
             <h2 class="text-tart-orange">Jpanik</h2>
             <h3>Full Stack Developer</h3>
@@ -103,7 +131,7 @@
             </ul>
           </template>
         </BaseCard>
-        <BaseCard v-if="index === 2" :is-swipe="true">
+        <BaseCard v-if="index === 3" :is-swipe="true">
           <template #content>
             <h2 class="text-tart-orange">University</h2>
             <h3>Computer Science Bachelor</h3>
@@ -126,7 +154,7 @@
             </ul>
           </template>
         </BaseCard>
-        <BaseCard v-if="index === 3" :is-swipe="true">
+        <BaseCard v-if="index === 4" :is-swipe="true">
           <template #content>
             <h2 class="text-tart-orange">Certifications</h2>
             <ul>
@@ -200,9 +228,7 @@
 
     <BaseSection id="contacts" class="contacts" data-observable>
       <h2 class="text-tart-orange">Get in touch</h2>
-      <div class="mt-1 mb-1">
-        I'm looking for opportunities in Canada, so if you're interested in my resume and want to contact me, please do!
-      </div>
+      <div class="mt-1 mb-1">I'm looking for opportunities, so if you're interested in my resume and want to contact me, please do!</div>
       <div class="text-center">
         <BaseButton>
           <a class="reset-link" href="mailto:roic.alessandro@gmail.com" target="_blank" aria-label="email">Mail me</a>

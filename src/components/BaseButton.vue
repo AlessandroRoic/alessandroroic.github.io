@@ -26,6 +26,7 @@ defineProps({
   padding: 10px 15px 10px 15px;
 
   &:hover {
+    background-color: variables.$jet;
     box-shadow: variables.$black-shadow;
   }
 
