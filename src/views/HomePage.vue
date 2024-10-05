@@ -16,7 +16,7 @@
       <div class="about__summary">
         <img class="about__side-photo" alt="profile" src="~@/assets/images/profile.webp" aria-label="profile picture" />
         <div class="m-auto">
-          Hi, I'm Alessandro and as you read before in the huge card above I'm a Front End Developer. I have 4+ years of experience building
+          Hi, I'm Alessandro and as you read before in the huge card above I'm a Front End Developer. I have 5 years of experience building
           modular and responsive website design. Right now my focus is on improving and developing my skills, but I'm always interested in
           trying new stuff out and learning more. I have many side-projects and ideas to realize and hopefully they will see the light soon,
           so stay tuned!
@@ -181,7 +181,7 @@
           <template #title><b>Personal Website</b></template>
           <template #content>Check this site source code on github for more details</template>
           <template #link>
-            <BaseButton @click="openSite('github.com/AlessandroRoic/alessandroroic.github.io')">Check it</BaseButton>
+            <BaseButton @click="openSite('github.com/AlessandroRoic/alessandroroic.github.io')">Check it </BaseButton>
           </template>
         </BaseCard>
 
@@ -190,9 +190,9 @@
             <img src="~@/assets/images/camo-notifications.webp" alt="" />
           </template>
           <template #title><b>CamoNotifications</b></template>
-          <template #content>React notifications library that disguises itself in your application 🥷😶‍🌫️</template>
+          <template #content>React notifications library that disguises itself in your application 🥷😶‍🌫️ </template>
           <template #link>
-            <BaseButton @click="openSite('github.com/AlessandroRoic/CamoNotifications')">Check it</BaseButton>
+            <BaseButton @click="openSite('github.com/AlessandroRoic/CamoNotifications')">Check it </BaseButton>
           </template>
         </BaseCard>
 
