@@ -51,22 +51,23 @@
             <p class="mt-1">May 2023 - Present</p>
             <ul>
               <li>
-                <span>Developed features for a SaaS application used for application resource management.</span>
+                <span>Developed 5+ key features for Turbonomic, a SaaS application for resource management.</span>
               </li>
               <li>
                 <span
-                  >Successfully leveraged React to modernize the application architecture from AngularJS, improving scalability and
-                  maintainability for future growth</span
+                  >Headed 3 feature teams of 10 people, driving successful project delivery and collaboration across cross-functional
+                  teams.</span
                 >
               </li>
               <li>
-                <span>
-                  Led the development of the user permission service, ensuring secure and granular access control for the application.
+                <span
+                  >Led the development of the user permission service, ensuring secure and granular access control to the application.
                 </span>
               </li>
               <li>
-                <span>
-                  Mentored junior developers throughout the process, fostering a collaborative environment and knowledge transfer.
+                <span
+                  >Executed a complex migration from AngularJS to React, resulting in measurable improvements to UX, performance
+                  optimization, and streamlined maintainability for future scalability.
                 </span>
               </li>
             </ul>
@@ -86,7 +87,7 @@
               </li>
               <li>
                 <span
-                  >Developed 10+ repositories for an international banking website, using React to build modular and reactive micro front
+                  >Developed 3+ repositories for an international banking website, using React to build modular and reactive micro front
                   ends</span
                 >
               </li>
@@ -111,8 +112,8 @@
             <ul>
               <li>
                 <span
-                  >Implemented pages for a hospital management web app, handling heavy workloads during the pandemic by prioritizing tasks,
-                  resulting in zero service disruption.</span
+                  >Developed and implemented core front-end and back-end features for a hospital management web application, enhancing
+                  overall functionality.</span
                 >
               </li>
               <li>
@@ -122,10 +123,13 @@
                 >
               </li>
               <li>
-                <span>Developed RESTful APIs using Spring Boot to create scalable and performant services.</span>
+                <span>Developed RESTful APIs using Java and Spring Boot to create scalable and performant services.</span>
               </li>
               <li>
                 <span>Designed and implemented efficient data storage and retrieval solutions using PostgreSQL and MongoDB databases.</span>
+              </li>
+              <li>
+                <span>Migrated AngularJS components to Angular 8 significantly reducing code complexity.</span>
               </li>
               <li>Technologies used: Angular/AngularJS, Java/Java EE, Spring, REST API, PostgreSQL, MongoDB</li>
             </ul>
