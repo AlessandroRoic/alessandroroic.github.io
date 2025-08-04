@@ -7,11 +7,17 @@ export default defineConfig({
   plugins: [
     vue(),
     purgeCss({
-      content: [
-        './index.html',
-        './src/**/*.{vue,js,ts,jsx,tsx}',
+      content: [`./src/**/*.vue`, `./index.html`],
+      defaultExtractor: content => {
+        const contentWithoutStyleBlocks = content.replace(/<style[^]+?<\/style>/gi, '');
+        return contentWithoutStyleBlocks.match(/[A-Za-z0-9-_/:]*[A-Za-z0-9-_/]+/g) || [];
+      },
+      safelist: [
+        /-(leave|enter|appear)(|-(to|from|active))$/,
+        /^(?!(|.*?:)cursor-move).+-move$/,
+        /^router-link(|-exact)-active$/,
+        /data-v-.*/,
       ],
-      defaultExtractor: content => content.match(/[\w-/:@]+(?<!:)/g) || [],
     }),
   ],
 });
