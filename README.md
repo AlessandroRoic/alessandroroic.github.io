@@ -1,4 +1,4 @@
-# ![Logo](/public/favicon.ico) alessandroroic.github.io - v2.0
+# ![Logo](/public/favicon.ico) alessandroroic.github.io
 Personal website built with Vue, designed and developed to showcase my skills and latest projects.
 
 [Check it out!](https://alessandroroic.github.io/)
