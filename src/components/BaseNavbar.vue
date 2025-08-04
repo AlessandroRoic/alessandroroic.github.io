@@ -8,11 +8,11 @@
     }"
   >
     <svg class="navbar__logo" @click="reloadPage()" aria-label="site logo">
-      <use href="~@/assets/icons/icons.svg#site-logo"></use>
+      <use :href="`${icons}#site-logo`"></use>
     </svg>
 
     <svg v-if="isMobile" @click="toggleSidenav" class="navbar__menu" aria-label="menu button">
-      <use href="~@/assets/icons/icons.svg#menu-right"></use>
+      <use :href="`${icons}#menu-right`"></use>
     </svg>
 
     <div v-else>
@@ -25,14 +25,15 @@
 </template>
 
 <script setup>
-import { reloadPage } from '@/helpers/utils';
-import { ScrollDirection } from '@/enums/scroll-direction.enum';
-import BaseLink from '@/components/BaseLink';
-import { breakpoints } from '@/helpers/breakpoints';
+import { reloadPage } from '../helpers/utils';
+import { breakpoints } from '../helpers/breakpoints';
+import { useUiStore } from '../store/UIStore';
 import { computed, onMounted, ref, watch } from 'vue';
-import useCScroll from '@/composables/ScrollComposable';
-import { useUiStore } from '@/store/UIStore';
+import useCScroll from '../composables/ScrollComposable';
+import { ScrollDirection } from '../enums/scroll-direction.enum';
 import anime from 'animejs';
+import BaseLink from './BaseLink.vue';
+import icons from '../assets/icons/icons.svg';
 
 const isMobile = breakpoints.smaller('mobile-l');
 const isLinkClicked = ref(false);

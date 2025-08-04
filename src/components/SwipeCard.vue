@@ -18,7 +18,7 @@
 <script setup>
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { SwipeDirection, useSwipe } from '@vueuse/core';
-import { breakpoints } from '@/helpers/breakpoints';
+import { breakpoints } from '../helpers/breakpoints';
 import anime from 'animejs';
 
 const props = defineProps({
@@ -82,8 +82,8 @@ const manageSwipe = (event, direction = null) => {
 </script>
 
 <style scoped lang="scss">
-@use '~@/styles/variables';
-@use '~@/styles/lib/breakpoint';
+@use '../styles/variables';
+@use '../styles/lib/breakpoint';
 
 .swipe {
   position: relative;

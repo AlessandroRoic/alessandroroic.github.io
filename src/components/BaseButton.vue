@@ -17,7 +17,8 @@ defineProps({
 </script>
 
 <style scoped lang="scss">
-@use '../styles/variables';
+@use "../styles/variables";
+
 .base-button {
   color: variables.$cultured;
   border: 2px solid variables.$tart-orange;

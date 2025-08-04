@@ -1,4 +1,4 @@
-import { ScrollDirection } from '@/enums/scroll-direction.enum';
+import { ScrollDirection } from '../enums/scroll-direction.enum.js';
 import { ref, watch } from 'vue';
 import { useScroll } from '@vueuse/core';
 

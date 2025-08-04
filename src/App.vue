@@ -6,8 +6,8 @@
 </template>
 
 <script setup>
-import HomePage from '@/views/HomePage';
-import BaseNavbar from '@/components/BaseNavbar';
-import BaseFooter from '@/components/BaseFooter';
-import BaseSidenav from '@/components/BaseSidenav';
+import HomePage from './views/HomePage.vue';
+import BaseNavbar from './components/BaseNavbar.vue';
+import BaseFooter from './components/BaseFooter.vue';
+import BaseSidenav from './components/BaseSidenav.vue';
 </script>

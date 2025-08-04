@@ -6,5 +6,5 @@
 </template>
 
 <script setup>
-import SocialMedias from '@/components/SocialMedias';
+import SocialMedias from '../components/SocialMedias.vue';
 </script>

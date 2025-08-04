@@ -1,0 +1,17 @@
+export const skills = [
+  'Javascript (ES6+)',
+  'Typescript',
+  'React',
+  'Angular',
+  'Vue',
+  'Sass',
+  'NgRx',
+  'RxJs',
+  'Redux',
+  'Jasmine',
+  'Karma',
+  'Java (EE)',
+  'Spring',
+  'PostgreSQL',
+  'MongoDB',
+];

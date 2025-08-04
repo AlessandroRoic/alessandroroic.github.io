@@ -2,32 +2,33 @@
   <div :class="isFooter ? 'social-medias--footer' : 'social-medias'">
     <button @click="openSite('github.com/AlessandroRoic')" aria-label="github">
       <svg class="social-medias__icon">
-        <use href="~@/assets/icons/icons.svg#github"></use>
+        <use :href="`${icons}#github`"></use>
       </svg>
     </button>
 
     <button @click="openSite('linkedin.com/in/alessandroroic')" aria-label="linkedin">
       <svg class="social-medias__icon">
-        <use href="~@/assets/icons/icons.svg#linkedin"></use>
+        <use :href="`${icons}#linkedin`"></use>
       </svg>
     </button>
 
     <button @click="downloadCv()" aria-label="cv">
       <svg class="social-medias__icon">
-        <use href="~@/assets/icons/icons.svg#cv"></use>
+        <use :href="`${icons}#cv`"></use>
       </svg>
     </button>
 
     <a class="social-medias__icon-wrapper" href="mailto:" target="_blank" aria-label="email">
       <svg class="social-medias__icon">
-        <use href="~@/assets/icons/icons.svg#email"></use>
+        <use :href="`${icons}#email`"></use>
       </svg>
     </a>
   </div>
 </template>
 
 <script setup>
-import { downloadCv, openSite } from '@/helpers/utils';
+import { downloadCv, openSite } from '../helpers/utils';
+import icons from '../assets/icons/icons.svg';
 
 defineProps(['isFooter']);
 </script>

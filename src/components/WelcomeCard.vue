@@ -23,7 +23,7 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-@use '~@/styles/variables';
+@use '../styles/variables';
 
 #welcome-card {
   font-size: 0.84rem;

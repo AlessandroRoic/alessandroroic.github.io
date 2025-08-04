@@ -17,11 +17,11 @@ defineProps({
 </script>
 
 <style scoped lang="scss">
-@use '~@/styles/variables';
+@use '../styles/variables';
 
 .base-link {
   font-size: 1rem;
-  color: variables.$cultured;
+  color: variables.$cultured !important;
   margin: 5px 10px;
   text-decoration: none;
 

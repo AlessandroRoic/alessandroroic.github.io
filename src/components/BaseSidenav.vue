@@ -18,13 +18,13 @@
 </template>
 
 <script setup>
-import SocialMedias from '@/components/SocialMedias';
-import BaseLink from '@/components/BaseLink';
-import { useUiStore } from '@/store/UIStore';
+import SocialMedias from './SocialMedias.vue';
+import BaseLink from './BaseLink.vue';
+import { useUiStore } from '../store/UIStore';
 import { storeToRefs } from 'pinia/dist/pinia';
 import anime from 'animejs';
-import { animateSlide } from '@/animations/slide-animations';
-import { animateFade } from '@/animations/fade-animations';
+import { animateSlide } from '../animations/slide-animations';
+import { animateFade } from '../animations/fade-animations';
 
 const uiStore = useUiStore();
 const { sideNavOpened } = storeToRefs(uiStore);
