@@ -1,4 +1,4 @@
-const fs = require("fs");
+import fs from "fs";
 
 //create 404.html
 fs.copyFile("./dist/index.html", "./dist/404.html", (err) => {

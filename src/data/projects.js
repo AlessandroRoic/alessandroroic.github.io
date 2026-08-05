@@ -1,4 +1,4 @@
-import siteLogo from "../assets/icons/icons.svg#site-logo";
+import icons from "../assets/icons/icons.svg";
 import camoNotification from "../assets/images/camo-notifications.webp";
 import eQuality from "../assets/images/e-quality.png";
 import airborneAssault from "../assets/images/airborne-assault.png";
@@ -8,7 +8,7 @@ export const projects = [
     name: "Personal Website",
     description: "Check this site source code on github for more details",
     site: "github.com/AlessandroRoic/alessandroroic.github.io",
-    logo: siteLogo,
+    logo: `${icons}#site-logo`,
   },
   {
     name: "CamoNotifications",
