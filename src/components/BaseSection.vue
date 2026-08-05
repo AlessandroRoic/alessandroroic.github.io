@@ -18,8 +18,8 @@ defineProps({
 </script>
 
 <style scoped lang="scss">
-@use '../styles/variables';
-@use '../styles/lib/layout';
+@use "../styles/variables";
+@use "../styles/lib/layout";
 
 .section {
   &__wrapper {

@@ -1,5 +1,9 @@
 <template>
-  <a :href="href" :class="`base-link ${showUnderline ? 'base-link--underline' : ''}`" @click="$emit('click')">
+  <a
+    :href="href"
+    :class="`base-link ${showUnderline ? 'base-link--underline' : ''}`"
+    @click="$emit('click')"
+  >
     <slot></slot>
   </a>
 </template>
@@ -17,7 +21,7 @@ defineProps({
 </script>
 
 <style scoped lang="scss">
-@use '../styles/variables';
+@use "../styles/variables";
 
 .base-link {
   font-size: 1rem;

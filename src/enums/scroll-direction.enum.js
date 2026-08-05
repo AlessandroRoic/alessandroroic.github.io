@@ -1,4 +1,4 @@
 export const ScrollDirection = {
-  UP: 'UP',
-  DOWN: 'DOWN',
+  UP: "UP",
+  DOWN: "DOWN",
 };

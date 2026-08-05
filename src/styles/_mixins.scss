@@ -10,4 +10,3 @@
 @mixin scaleWidth($initialValue) {
   width: calc(#{$initialValue} + (100vw / 320));
 }
-

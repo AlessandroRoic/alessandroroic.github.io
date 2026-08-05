@@ -1,6 +1,6 @@
 @use "sass:math";
-@use 'breakpoint';
-@use 'variables';
+@use "breakpoint";
+@use "variables";
 
 @mixin container-base() {
   width: 100%;
@@ -38,7 +38,7 @@
   @if $number == auto {
     width: auto;
   } @else {
-    width: percentage(math.div($number, variables.$columns))
+    width: percentage(math.div($number, variables.$columns));
   }
 }
 

@@ -4,10 +4,24 @@
       <div @click="closeSidenav()"></div>
       <div class="sidenav__menu">
         <div class="sidenav__links">
-          <BaseLink @click="closeSidenav()" class="sidenav__link" href="#about">ABOUT</BaseLink>
-          <BaseLink @click="closeSidenav()" class="sidenav__link" href="#work">WORK</BaseLink>
-          <BaseLink @click="closeSidenav()" class="sidenav__link" href="#projects">PROJECTS</BaseLink>
-          <BaseLink @click="closeSidenav()" class="sidenav__link" href="#contacts">CONTACTS</BaseLink>
+          <BaseLink @click="closeSidenav()" class="sidenav__link" href="#about"
+            >ABOUT</BaseLink
+          >
+          <BaseLink @click="closeSidenav()" class="sidenav__link" href="#work"
+            >WORK</BaseLink
+          >
+          <BaseLink
+            @click="closeSidenav()"
+            class="sidenav__link"
+            href="#projects"
+            >PROJECTS</BaseLink
+          >
+          <BaseLink
+            @click="closeSidenav()"
+            class="sidenav__link"
+            href="#contacts"
+            >CONTACTS</BaseLink
+          >
         </div>
         <div>
           <SocialMedias />
@@ -18,36 +32,44 @@
 </template>
 
 <script setup>
-import SocialMedias from './SocialMedias.vue';
-import BaseLink from './BaseLink.vue';
-import { useUiStore } from '../store/UIStore';
-import { storeToRefs } from 'pinia/dist/pinia';
-import anime from 'animejs';
-import { animateSlide } from '../animations/slide-animations';
-import { animateFade } from '../animations/fade-animations';
+import SocialMedias from "./SocialMedias.vue";
+import BaseLink from "./BaseLink.vue";
+import { useUiStore } from "../store/UIStore";
+import { storeToRefs } from "pinia/dist/pinia";
+import anime from "animejs";
+import { animateSlide } from "../animations/slide-animations";
+import { animateFade } from "../animations/fade-animations";
 
 const uiStore = useUiStore();
 const { sideNavOpened } = storeToRefs(uiStore);
 const { toggleSidenav } = uiStore;
 
 const animateBackground = (isClose) =>
-  anime({ targets: '.sidenav', background: `rgba(0, 0, 0, ${isClose ? 0 : 0.5})`, duration: 250, easing: 'linear' });
+  anime({
+    targets: ".sidenav",
+    background: `rgba(0, 0, 0, ${isClose ? 0 : 0.5})`,
+    duration: 250,
+    easing: "linear",
+  });
 
 const openSidenav = () => {
   animateBackground();
   const timeline = anime.timeline();
-  timeline.add(animateSlide('.sidenav__menu')).add(animateFade('.sidenav__link')).add(animateFade('.social-medias__icon'));
+  timeline
+    .add(animateSlide(".sidenav__menu"))
+    .add(animateFade(".sidenav__link"))
+    .add(animateFade(".social-medias__icon"));
 };
 const closeSidenav = () => {
   animateBackground(true);
-  animateSlide('.sidenav__menu', true, () => toggleSidenav());
+  animateSlide(".sidenav__menu", true, () => toggleSidenav());
 };
 </script>
 
 <style scoped lang="scss">
-@use '../styles/variables';
-@use '../styles/mixins';
-@use '../styles/lib/layout';
+@use "../styles/variables";
+@use "../styles/mixins";
+@use "../styles/lib/layout";
 
 .sidenav {
   display: grid;

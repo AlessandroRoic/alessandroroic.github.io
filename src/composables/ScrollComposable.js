@@ -1,6 +1,6 @@
-import { ScrollDirection } from '../enums/scroll-direction.enum.js';
-import { ref, watch } from 'vue';
-import { useScroll } from '@vueuse/core';
+import { ScrollDirection } from "../enums/scroll-direction.enum.js";
+import { ref, watch } from "vue";
+import { useScroll } from "@vueuse/core";
 
 export default function useCScroll(threshold = 100) {
   const { isScrolling, y } = useScroll(window);
@@ -14,7 +14,8 @@ export default function useCScroll(threshold = 100) {
       return;
     }
     isScrolled.value = true;
-    direction.value = newValue > oldValue ? ScrollDirection.DOWN : ScrollDirection.UP;
+    direction.value =
+      newValue > oldValue ? ScrollDirection.DOWN : ScrollDirection.UP;
   });
 
   return {

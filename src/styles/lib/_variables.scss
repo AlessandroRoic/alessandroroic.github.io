@@ -2,25 +2,25 @@
 
 // breakpoints
 $grid-breakpoints: (
-        reset: 0,
-        mobile-s: 320px,
-        mobile-m: 375px,
-        mobile-l: 425px,
-        tablet: 768px,
-        desktop: 1024px,
-        desktop-m: 1440px,
-        desktop-l: 2560px
+  reset: 0,
+  mobile-s: 320px,
+  mobile-m: 375px,
+  mobile-l: 425px,
+  tablet: 768px,
+  desktop: 1024px,
+  desktop-m: 1440px,
+  desktop-l: 2560px,
 );
 $container-breakpoints: (
-        mobile-s: 320px,
-        mobile-m: 375px,
-        mobile-l: 425px,
-        tablet: 768px,
-        desktop: 1024px,
-        desktop-m: 1440px,
-        desktop-l: 2560px
+  mobile-s: 320px,
+  mobile-m: 375px,
+  mobile-l: 425px,
+  tablet: 768px,
+  desktop: 1024px,
+  desktop-m: 1440px,
+  desktop-l: 2560px,
 );
-$breakpoint-separator: ':';
+$breakpoint-separator: ":";
 
 // layout
 $columns: 12;
@@ -29,36 +29,53 @@ $column-gap: 2rem;
 // spacing
 $spacer: 1rem;
 $spacings: (
-        auto: auto,
-        '1/8': math.div($spacer, 8),
-        '1/4': math.div($spacer, 4),
-        '1/2': math.div($spacer, 2),
-        0: 0,
-        1: 1 * $spacer,
-        2: 2 * $spacer,
-        3: 3 * $spacer,
-        4: 4 * $spacer
+  auto: auto,
+  "1/8": math.div($spacer, 8),
+  "1/4": math.div($spacer, 4),
+  "1/2": math.div($spacer, 2),
+  0: 0,
+  1: 1 * $spacer,
+  2: 2 * $spacer,
+  3: 3 * $spacer,
+  4: 4 * $spacer,
 );
 $directions: (
-        all: '',
-        top: t,
-        bottom: b,
-        right: r,
-        left: l,
-        x: x,
-        y: y
+  all: "",
+  top: t,
+  bottom: b,
+  right: r,
+  left: l,
+  x: x,
+  y: y,
 );
 
 // font
 $font-size-base: 1rem !default;
 
 // headings
-$headings-margin-bottom: math.div($spacer, 2) !default;
+$headings-margin-bottom: 0.75rem !default;
 $headings-font-weight: 600 !default;
-$headings-line-height: 1.2 !default;
-$h1-font-size: $font-size-base * 2.5 !default;
-$h2-font-size: $font-size-base * 2 !default;
-$h3-font-size: $font-size-base * 1.75 !default;
-$h4-font-size: $font-size-base * 1.5 !default;
-$h5-font-size: $font-size-base * 1.25 !default;
-$h6-font-size: $font-size-base !default;
+$headings-line-height: 1.25 !default;
+
+$h1-font-size: clamp(
+  1.75rem,
+  4vw,
+  2.25rem
+) !default; // Mobile: 28px | Desktop: 36px
+$h2-font-size: clamp(
+  1.44rem,
+  3vw,
+  1.75rem
+) !default; // Mobile: 23px | Desktop: 28px
+$h3-font-size: clamp(
+  1.25rem,
+  2.5vw,
+  1.44rem
+) !default; // Mobile: 20px | Desktop: 23px
+$h4-font-size: clamp(
+  1.12rem,
+  2vw,
+  1.2rem
+) !default; // Mobile: 18px | Desktop: 19px
+$h5-font-size: 1rem !default; // Constant 16px (styled via weight)
+$h6-font-size: 0.85rem !default; // Constant ~13.5px (perfect for metadata)

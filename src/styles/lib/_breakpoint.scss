@@ -1,4 +1,4 @@
-@use 'variables';
+@use "variables";
 
 @mixin show-for($selected-breakpoint) {
   @if $selected-breakpoint {
@@ -39,6 +39,6 @@
       }
     }
   } @else {
-    @error 'Label necessary'
+    @error 'Label necessary';
   }
 }

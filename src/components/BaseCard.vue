@@ -3,10 +3,18 @@
     <div v-if="$slots.logo" class="card__logo">
       <slot name="logo"></slot>
     </div>
-    <div v-if="$slots.title" class="card__content" :class="{ 'text-center': centerText }">
+    <div
+      v-if="$slots.title"
+      class="card__content"
+      :class="{ 'text-center': centerText }"
+    >
       <slot name="title"></slot>
     </div>
-    <div v-if="$slots.content" class="card__content" :class="{ 'text-center': centerText }">
+    <div
+      v-if="$slots.content"
+      class="card__content"
+      :class="{ 'text-center': centerText }"
+    >
       <slot name="content"></slot>
     </div>
     <div v-if="$slots.link" class="card__link">
@@ -27,9 +35,9 @@ defineProps({
 </script>
 
 <style scoped lang="scss">
-@use '../styles/variables';
-@use '../styles/lib/layout';
-@use '../styles/lib/breakpoint';
+@use "../styles/variables";
+@use "../styles/lib/layout";
+@use "../styles/lib/breakpoint";
 
 .card {
   &__wrapper {

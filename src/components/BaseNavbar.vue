@@ -11,7 +11,12 @@
       <use :href="`${icons}#site-logo`"></use>
     </svg>
 
-    <svg v-if="isMobile" @click="toggleSidenav" class="navbar__menu" aria-label="menu button">
+    <svg
+      v-if="isMobile"
+      @click="toggleSidenav"
+      class="navbar__menu"
+      aria-label="menu button"
+    >
       <use :href="`${icons}#menu-right`"></use>
     </svg>
 
@@ -25,17 +30,17 @@
 </template>
 
 <script setup>
-import { reloadPage } from '../helpers/utils';
-import { breakpoints } from '../helpers/breakpoints';
-import { useUiStore } from '../store/UIStore';
-import { computed, onMounted, ref, watch } from 'vue';
-import useCScroll from '../composables/ScrollComposable';
-import { ScrollDirection } from '../enums/scroll-direction.enum';
-import anime from 'animejs';
-import BaseLink from './BaseLink.vue';
-import icons from '../assets/icons/icons.svg';
+import { reloadPage } from "../helpers/utils";
+import { breakpoints } from "../helpers/breakpoints";
+import { useUiStore } from "../store/UIStore";
+import { computed, onMounted, ref, watch } from "vue";
+import useCScroll from "../composables/ScrollComposable";
+import { ScrollDirection } from "../enums/scroll-direction.enum";
+import anime from "animejs";
+import BaseLink from "./BaseLink.vue";
+import icons from "../assets/icons/icons.svg";
 
-const isMobile = breakpoints.smaller('mobile-l');
+const isMobile = breakpoints.smaller("mobile-l");
 const isLinkClicked = ref(false);
 const uiStore = useUiStore();
 const { toggleSidenav } = uiStore;
@@ -46,12 +51,12 @@ const isClosed = computed(() => direction.value === ScrollDirection.DOWN);
 
 onMounted(() => {
   anime({
-    targets: '#navbar',
+    targets: "#navbar",
     duration: 500,
-    easing: 'linear',
+    easing: "linear",
     translateY: [-100, 0],
     delay: 3000,
-    complete: (anim) => anim.set('#navbar', { style: '' }),
+    complete: (anim) => anim.set("#navbar", { style: "" }),
   });
 });
 
@@ -68,11 +73,11 @@ const closeNavbar = () => {
 </script>
 
 <style scoped lang="scss">
-@use '../styles/variables';
-@use '../styles/mixins';
-@use '../styles/lib/positioning';
-@use '../styles/lib/layout';
-@use '../styles/lib/breakpoint';
+@use "../styles/variables";
+@use "../styles/mixins";
+@use "../styles/lib/positioning";
+@use "../styles/lib/layout";
+@use "../styles/lib/breakpoint";
 
 .navbar {
   @include positioning.fixed-top();

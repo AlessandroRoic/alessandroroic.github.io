@@ -1,14 +1,21 @@
 <template>
-  <button class="base-button" @click="$emit('click')" :type="type" :class="className">
+  <button
+    class="base-button"
+    @click="$emit('click')"
+    :type="type"
+    :class="className"
+  >
     <slot></slot>
   </button>
 </template>
 
 <script setup>
+defineEmits(["click"]);
+
 defineProps({
   type: {
     type: String,
-    default: 'button',
+    default: "button",
   },
   className: {
     type: String,

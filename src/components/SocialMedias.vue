@@ -6,7 +6,10 @@
       </svg>
     </button>
 
-    <button @click="openSite('linkedin.com/in/alessandroroic')" aria-label="linkedin">
+    <button
+      @click="openSite('linkedin.com/in/alessandroroic')"
+      aria-label="linkedin"
+    >
       <svg class="social-medias__icon">
         <use :href="`${icons}#linkedin`"></use>
       </svg>
@@ -17,27 +20,21 @@
         <use :href="`${icons}#cv`"></use>
       </svg>
     </button>
-
-    <a class="social-medias__icon-wrapper" href="mailto:" target="_blank" aria-label="email">
-      <svg class="social-medias__icon">
-        <use :href="`${icons}#email`"></use>
-      </svg>
-    </a>
   </div>
 </template>
 
 <script setup>
-import { downloadCv, openSite } from '../helpers/utils';
-import icons from '../assets/icons/icons.svg';
+import { downloadCv, openSite } from "../helpers/utils";
+import icons from "../assets/icons/icons.svg";
 
-defineProps(['isFooter']);
+defineProps(["isFooter"]);
 </script>
 
 <style scoped lang="scss">
-@use '../styles/variables';
-@use '../styles/mixins';
-@use '../styles/lib/layout';
-@use '../styles/lib/positioning';
+@use "../styles/variables";
+@use "../styles/mixins";
+@use "../styles/lib/layout";
+@use "../styles/lib/positioning";
 
 .social-medias {
   display: grid;

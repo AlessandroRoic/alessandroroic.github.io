@@ -1,5 +1,10 @@
 <template>
-  <div class="swipe" ref="swipeWrapper" @wheel.prevent="manageSwipe($event)" :class="styleClass">
+  <div
+    class="swipe"
+    ref="swipeWrapper"
+    @wheel.prevent="manageSwipe($event)"
+    :class="styleClass"
+  >
     <div class="swipe__bullet-wrapper">
       <button
         v-for="bullet in cardNumber"
@@ -16,10 +21,10 @@
   </div>
 </template>
 <script setup>
-import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
-import { SwipeDirection, useSwipe } from '@vueuse/core';
-import { breakpoints } from '../helpers/breakpoints';
-import anime from 'animejs';
+import { onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { SwipeDirection, useSwipe } from "@vueuse/core";
+import { breakpoints } from "../helpers/breakpoints";
+import anime from "animejs";
 
 const props = defineProps({
   cardNumber: {
@@ -39,17 +44,18 @@ const index = ref(0);
 const previousIndex = ref(0);
 const swipeWrapper = ref(null);
 const contentWrapper = ref(null);
-const isMobile = breakpoints.smaller('tablet');
+const isMobile = breakpoints.smaller("tablet");
 const observer = new MutationObserver(() => {
-  const direction = index.value > previousIndex.value ? ['-100%', 0] : ['100%', 0];
+  const direction =
+    index.value > previousIndex.value ? ["-100%", 0] : ["100%", 0];
   anime({
     targets: `.swipe__content .${props.classToAnimate}`,
     ...(!isMobile.value ? { translateY: direction } : {}),
     ...(isMobile.value ? { translateX: direction } : {}),
     opacity: [0, 1],
-    easing: 'easeInOutQuad',
+    easing: "easeInOutQuad",
     duration: 350,
-    direction: 'normal',
+    direction: "normal",
   });
 });
 
@@ -76,14 +82,15 @@ const manageSwipe = (event, direction = null) => {
   if (event.deltaY < 0 || direction === SwipeDirection.RIGHT) {
     index.value = index.value - 1 >= 0 ? index.value - 1 : index.value;
   } else if (event.deltaY > 0 || direction === SwipeDirection.LEFT) {
-    index.value = index.value + 1 < props.cardNumber ? index.value + 1 : index.value;
+    index.value =
+      index.value + 1 < props.cardNumber ? index.value + 1 : index.value;
   }
 };
 </script>
 
 <style scoped lang="scss">
-@use '../styles/variables';
-@use '../styles/lib/breakpoint';
+@use "../styles/variables";
+@use "../styles/lib/breakpoint";
 
 .swipe {
   position: relative;
