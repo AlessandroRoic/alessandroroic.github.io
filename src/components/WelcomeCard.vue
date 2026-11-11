@@ -6,16 +6,18 @@
     ref="welcomeCard"
   >
     <title id="welcome-title">
-      Hello, This is Alessandro Roic Front End Developer
+      Hello, I'm Alessandro Roic, Software Engineer.
     </title>
-    <text x="0" y="15">Hello,</text>
-    <text x="0" y="40">This is</text>
-    <text x="45" y="40" fill="#F64E4D">Alessandro Roic</text>
-    <text x="0" y="65">Front End Developer</text>
+    <text class="welcome-card__small" x="5" y="15">👋 Hello I'm,</text>
+    <text class="welcome-card__name" x="5" y="40" fill="#F64E4D">
+      Alessandro Roic
+    </text>
+    <text class="welcome-card__role" x="5" y="65">Senior Software Engineer</text>
     <line
-      x1="45"
-      y1="44"
-      y2="44"
+      x1="4"
+      x2="137"
+      y1="43"
+      y2="43"
       stroke="#F64E4D"
       stroke-width="2"
       stroke-linecap="round"
@@ -43,8 +45,21 @@ onMounted(() => {
 @use "../styles/variables";
 
 #welcome-card {
-  font-size: 0.84rem;
   font-weight: 500;
   fill: variables.$cultured;
+
+  .welcome-card__name {
+    font-size: 1.1rem;
+  }
+
+  .welcome-card__small {
+    font-size: 0.5rem;
+    font-weight: 400;
+  }
+
+  .welcome-card__role {
+    font-size: 0.4rem;
+    font-weight: 400;
+  }
 }
 </style>

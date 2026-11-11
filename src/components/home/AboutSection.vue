@@ -10,9 +10,9 @@
       />
       <div class="m-auto">
         Hi, I'm Alessandro and as you read before in the huge card above I'm a
-        Front End Developer. <br />
+        Senior Software Engineer. <br />
         <br />
-        I have 6+ years of experience building modular and responsive website
+        I have 7 years of experience building modular and responsive website
         design. Right now my focus is on improving and developing my skills, but
         I'm always interested in trying new stuff out and learning more. I have
         many side-projects and ideas to realize and hopefully they will see the
