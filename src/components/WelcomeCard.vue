@@ -8,7 +8,7 @@
     <title id="welcome-title">
       Hello, I'm Alessandro Roic, Software Engineer.
     </title>
-    <text class="welcome-card__small" x="5" y="15">👋 Hello I'm,</text>
+    <text class="welcome-card__small" x="5" y="15">Hello I'm,</text>
     <text class="welcome-card__name" x="5" y="40" fill="#F64E4D">
       Alessandro Roic
     </text>
