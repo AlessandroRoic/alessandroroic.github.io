@@ -17,7 +17,7 @@ export const svgTextFade = (targets, duration = 600, inBetweenDelay = 50) => ({
 
 export const svgLineFade = (targets, duration = 500) => ({
   targets,
-  x2: [50, 145],
+  x2: [50, 138],
   opacity: [0, 1],
   duration,
   easing: "linear",
@@ -25,4 +25,23 @@ export const svgLineFade = (targets, duration = 500) => ({
 
 export const animateFade = (targets, duration) =>
   anime(fade(targets, duration));
+
 export const animateSvgTextFade = (targets) => anime(fade(targets));
+
+export const svgHandAnim = () => ({
+  targets: "#welcome-card .hand",
+  opacity: {
+    value: [0, 1],
+    duration: 200,
+    easing: 'easeOutQuad'
+  },
+  rotate: [
+    { value: '0deg', duration: 200 },
+    { value: '-35deg', duration: 200 },
+    { value: '35deg', duration: 200 },
+    { value: '-35deg', duration: 200 },
+    { value: '35deg', duration: 200 },
+    { value: '0deg', duration: 200 }
+  ],
+  easing: 'easeInOutSine'
+})

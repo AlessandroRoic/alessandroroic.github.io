@@ -19,7 +19,7 @@
         light soon, so stay tuned!
         <div class="mt-2 text-center">
           <BaseButton @click="downloadCv()" aria-label="cv"
-            >Interested? Get my CV!</BaseButton
+            >Interested? Get my CV</BaseButton
           >
         </div>
       </div>

@@ -25,6 +25,7 @@ import { scrollIntoView } from "../helpers/utils";
 import {
   animateFade,
   fade,
+  svgHandAnim,
   svgLineFade,
   svgTextFade,
 } from "../animations/fade-animations";
@@ -42,7 +43,8 @@ onMounted(() => {
   const timeline = anime.timeline();
   timeline
     .add(fade("#info", 400))
-    .add(svgTextFade("#welcome-card .letter", 200, 35))
+    .add(svgHandAnim(), 400)
+    .add(svgTextFade("#welcome-card .letter", 200, 35), 400)
     .add(svgLineFade("#welcome-card line", 200))
     .add(fade(".scroll-down", 400));
 });
