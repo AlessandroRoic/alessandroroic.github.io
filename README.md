@@ -3,8 +3,6 @@ Personal website built with Vue, designed and developed to showcase my skills an
 
 [Check it out!](https://alessandroroic.github.io/)
 
-![Snapshot](/src/assets/images/site-snapshot.png) 
-
 ## About it
 This is the second version of the website, the previous had some flaws, and it was too big for a small project like 
 a personal website. I moved from Angular to Vue 3 and removed most of the unnecessary libraries (like Boostrap).
